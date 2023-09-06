@@ -10,8 +10,8 @@ description: "Desc Text."
 disableHLJS: false
 disableShare: true
 hideSummary: false
-searchHidden: true
-ShowBreadCrumbs: true
+searchHidden: false
+ShowBreadCrumbs: false
 ShowPostNavLinks: true
 ShowWordCount: true
 UseHugoToc: true

@@ -1,0 +1,22 @@
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgb(205, 214, 244);
+    background: rgb(69, 71, 90);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font-size: 14px;
+    user-select: none;
+}
+
+div.highlight {
+    background-color: rgb(24, 24, 37);
+}
+
+pre {
+    color: rgb(205, 214, 244) !important;
+    background-color: rgb(24, 24, 37) !important;
+    border-radius: var(--radius) !important;
+}
