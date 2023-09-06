@@ -1,0 +1,29 @@
+baseURL = 'https://anantnrg.github.io'
+languageCode = 'en-us'
+title = 'Anant Narayan'
+theme = "PaperMod"
+
+[params]
+ShowBreadCrumbs = false
+disableThemeToggle = true
+ShowCodeCopyButtons = true
+
+[params.homeInfoParams]
+Title = "Anant Narayan"
+Content = "I'm a 14 year old Robotics Developer, Rust programmer and a Linux nerd. I love programming FPGAs and writing code in low level systems languages like Rust, C/C++ and Go. I (currently) use Artix Linux (with Runit), BSPWM, NeoVim and Neovide (NeoVim GUI). I occasionally also use VS Code for WebDev. I love hacking in Linux and trying to rewrite everything in Rust lol. I'm currently working on [Strata](https://github.com/stratawm/strata), a Wayland compositor writen in Rust and configured in Lua!"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/anantnrg"
+
+[[params.socialIcons]]
+name = "twitter"
+url = "https://twitter.com/anantnrg"
+
+[[params.socialIcons]]
+name = "reddit"
+url = "https://reddit.com/u/anantnrg"
+
+[[params.socialIcons]]
+name = "discord"
+url = "https://discord.gg/fVdux2fc"
