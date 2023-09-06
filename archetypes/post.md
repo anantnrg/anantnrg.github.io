@@ -1,12 +1,11 @@
 ---
-title: "My 1st post"
-date: 2020-09-15T11:30:03+00:00
+title: "Rust For Noobs"
+date: 2023-09-05T4:30:00+05:30
 author: "Anant Narayan"
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
-description: "Desc Text."
 disableHLJS: false
 disableShare: true
 hideSummary: false
@@ -15,4 +14,5 @@ ShowBreadCrumbs: false
 ShowPostNavLinks: true
 ShowWordCount: true
 UseHugoToc: true
+ShowReadingTime: true
 ---

@@ -46,6 +46,11 @@ keywords = [
     "SSG",
 ]
 
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
 [params.homeInfoParams]
 Title = "Hey, \U0001F44B"
 Content = "I'm Anant Narayan, a 14 year old Robotics Developer, Rust programmer and a Linux nerd. I love programming FPGAs and writing code in low level systems languages like Rust, C/C++ and Go. I (currently) use Artix Linux (with Runit), BSPWM, NeoVim and Neovide (NeoVim GUI). I occasionally use VS Code for WebDev. I also love hacking in Linux and trying to rewrite everything in Rust lol. I'm currently working on [Strata](https://github.com/stratawm/strata), a Wayland compositor writen in Rust and configured in Lua!"
