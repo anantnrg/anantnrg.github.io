@@ -8,7 +8,7 @@ draft: false
 hidemeta: false
 disableHLJS: false
 disableShare: true
-hideSummary: true
+hideSummary: false
 searchHidden: false
 ShowBreadCrumbs: false
 ShowPostNavLinks: true
