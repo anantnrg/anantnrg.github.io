@@ -1,5 +1,5 @@
 ---
-title: "Rust For Noobs"
+title: "Rust For Noobs - 01"
 date: 2023-09-05T4:30:00+05:30
 author: "Anant Narayan"
 showToc: true
@@ -17,7 +17,7 @@ UseHugoToc: true
 ShowReadingTime: true
 ---
 
-A complete guide to get started with Rust!
+A complete guide to get started with Rust - Part 1
 
 <!--more-->
 
@@ -74,3 +74,4 @@ cargo run
 
 If everything went according to plan, then it should print "Hello World!" in your terminal window. Congratulations:partying_face:, you just made your first program in Rust!
 
+In the next part of this guide, we'll see how this actually works. `:wq`
