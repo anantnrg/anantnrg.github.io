@@ -2,6 +2,7 @@
 title: "Rust For Noobs"
 date: 2023-09-05T4:30:00+05:30
 author: "Anant Narayan"
+weight: 1
 showToc: true
 TocOpen: false
 draft: false
