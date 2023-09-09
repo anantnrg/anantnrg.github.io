@@ -7,7 +7,7 @@ enableEmoji = true
 
 [params]
 ShowBreadCrumbs = false
-disableThemeToggle = true
+disableThemeToggle = false
 ShowCodeCopyButtons = true
 env = "production"
 keywords = [
@@ -73,7 +73,7 @@ url = "https://discord.gg/fVdux2fc"
 
 [[params.socialIcons]]
 name = "mastodon"
-url = "https://tech.lgbt/@anantnrg"
+url = "https://mastodon.social/@anantnrg"
 
 [[menu.main]]
 name = "Home"
