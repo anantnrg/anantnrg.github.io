@@ -4,11 +4,13 @@ title = 'Anant Narayan'
 theme = "PaperMod"
 enableRobotsTXT = true
 enableEmoji = true
+# pygmentsUseClasses = true
+# pygmentsCodefences = true
 
 [params]
 ShowBreadCrumbs = false
 disableThemeToggle = false
-ShowCodeCopyButtons = true
+ShowCodeCopyButtons = false
 env = "production"
 keywords = [
     "Blog",
