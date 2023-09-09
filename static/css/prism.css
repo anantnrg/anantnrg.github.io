@@ -29,6 +29,70 @@ pre > code[class*="language-"] {
 .namespace {
   opacity: .7;
 }
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #585b70;
+  font-style: italic;
+}
+.token.punctuation {
+  color: #b4befe;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted,
+.token.module-declaration,
+.token.namespace {
+  color: #fab387;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a6e3a1;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #94e2d5;
+  background: #181825;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #cba6f7;
+  font-style: bold;
+}
+.token.function {
+  color: #89b4fa;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #cba6f7;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+
 .token.keyword,
 .token.variable,
 .token.variable.language_,
@@ -45,7 +109,9 @@ pre > code[class*="language-"] {
 
 .token.type,
 .token.title.class_,
-.token.selector-tag {
+.token.selector-tag,
+.token.module-declaration,
+.token.namespace {
   color: #f9e2af
 }
 
@@ -99,65 +165,6 @@ pre > code[class*="language-"] {
   color: #cdd6f4
 }
 
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #585b70;
-  font-style: italic;
-}
-.token.punctuation {
-  color: #b4befe;
-}
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #fab387;
-}
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #a6e3a1;
-}
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #94e2d5;
-  background: #181825;
-}
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-  color: #cba6f7;
-  font-style: bold;
-}
-.token.function {
-  color: #89b4fa;
-}
-.token.regex,
-.token.important,
-.token.variable {
-  color: #cba6f7;
-}
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-.token.italic {
-  font-style: italic;
-}
-.token.entity {
-  cursor: help;
-}
 /*********************************************************
 * Line highlighting
 */
