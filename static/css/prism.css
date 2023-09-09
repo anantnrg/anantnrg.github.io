@@ -12,16 +12,19 @@ code[class*="language-"]::mozselection {
   }
 }
 pre[class*="language-"] {
-  padding: 1em;
-  margin: .5em 0;
+  padding: 10px;
+  margin: 0;
   overflow: auto;
-  background: #181825;
 }
+
+pre > code[class*="language-"] {
+  line-height: 32px;
+}
+
 :not(pre) > code[class*="language-"] {
-  padding: .1em .3em;
+  padding: 10px;
   border-radius: .3em;
   color: #cdd6f4;
-  background: #181825;
 }
 .namespace {
   opacity: .7;
