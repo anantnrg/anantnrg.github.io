@@ -1,5 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col bg-base">
+    <Navbar />
     <NuxtPage />
   </div>
 </template>
@@ -10,8 +11,12 @@
   margin: 0;
   box-sizing: border-box;
 }
-html,body, #__nuxt, #__layout{
-  height:100% !important;
+
+html,
+body,
+#__nuxt,
+#__layout {
+  height: 100% !important;
   width: 100% !important;
 }
 </style>
