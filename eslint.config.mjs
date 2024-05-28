@@ -6,16 +6,8 @@ export default withNuxt({
     semi: ["error", "always"],
     "eqeqeq": "error",
     "no-console": "warn",
-    "react/display-name": "off",
-    "react/no-children-prop": "off",
-    "react/react-in-jsx-scope": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "import/no-unresolved": ["off"],
-    "react/destructuring-assignment": "off",
-    "react/jsx-filename-extension ": "off",
     "import/prefer-default-export": "off",
-    "react/jsx-props-no-spreading": "off",
     "import/extensions": "off"
   },
   ignores: [
