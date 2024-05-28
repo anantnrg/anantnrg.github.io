@@ -18,5 +18,11 @@ export default withNuxt({
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",
     "import/extensions": "off"
-  }
+  },
+  ignores: [
+    "node_modules",
+    "build",
+    "dist",
+    "public"
+  ],
 });
