@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col bg-base">
-    <Navbar />
+    <NavBar />
     <NuxtPage />
   </div>
 </template>

@@ -1,8 +1,20 @@
-import { defineConfig } from 'unocss';
+import { defineConfig , presetWebFonts, presetUno } from 'unocss';
+
 
 export default defineConfig({
+    presets: [
+        presetUno(),
+        presetWebFonts({
+            fonts: {
+                sans: 'Inter',
+                mono: ['Martian Mono:300'],
+                spaceGrotesk: 'Space Grotesk'
+            }
+        })
+    ],
     theme: {
         colors: {
+            'accent': '#ea3546',
             'rosewater': '#f5e0dc',
             'flamingo': '#f2cdcd',
             'pink': '#f5c2e7',
