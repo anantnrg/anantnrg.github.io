@@ -14,7 +14,7 @@ export default defineConfig({
     ],
     theme: {
         colors: {
-            'accent': '#ea3546',
+            'accent': '#FF3300',
             'rosewater': '#f5e0dc',
             'flamingo': '#f2cdcd',
             'pink': '#f5c2e7',
