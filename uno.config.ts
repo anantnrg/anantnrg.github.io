@@ -6,7 +6,7 @@ export default defineConfig({
         presetUno(),
         presetWebFonts({
             fonts: {
-                sans: 'Inter',
+                sans: 'Roboto',
                 mono: ['Martian Mono:300'],
                 spaceGrotesk: 'Space Grotesk'
             }

@@ -3,13 +3,17 @@
         <div class="mx-auto h-[64px] px-8 flex items-center justify-between gap-4">
             <div class="flex-1"><span class="font-spaceGrotesk font-600 text-3xl text-accent">Anant Narayan</span></div>
             <div class="w-auto h-full items-center justify-center flex">
-                <div class="mr-6"><a href="#" class="font-sans  text-text  decoration-none  hover:text-accent">Home</a>
+                <div class="mr-6"><a href="#"
+                        class="font-sans text-text text-sm font-500 decoration-none  hover:text-accent">Home</a>
                 </div>
-                <div class="mr-6"><a href="#" class="font-sans  text-text decoration-none hover:text-accent">Blog</a>
+                <div class="mr-6"><a href="#"
+                        class="font-sans text-text text-sm font-500 decoration-none hover:text-accent">Blog</a>
                 </div>
-                <div class="mr-6"><a href="#" class="font-sans  text-text decoration-none hover:text-accent">Project
+                <div class="mr-6"><a href="#"
+                        class="font-sans text-text text-sm font-500 decoration-none hover:text-accent">Project
                         Series</a></div>
-                <div><a href="#" class="font-sans  text-text decoration-none hover:text-accent">About</a></div>
+                <div><a href="#"
+                        class="font-sans text-sm text-text font-500 decoration-none hover:text-accent">About</a></div>
             </div>
             <div class="flex-1 flex items-center justify-end">
                 <a href="https://github.com/anantnrg">
