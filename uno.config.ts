@@ -1,9 +1,10 @@
-import { defineConfig , presetWebFonts, presetUno } from 'unocss';
+import { defineConfig , presetWebFonts, presetUno, presetWind } from 'unocss';
 
 
 export default defineConfig({
     presets: [
         presetUno(),
+        presetWind(),
         presetWebFonts({
             fonts: {
                 sans: ['Inter var experimental', 'Inter var', 'Inter'],
@@ -42,5 +43,5 @@ export default defineConfig({
     //         'mantle': '#181825',
     //         'crust': '#11111b',
     //     }
-    // }
+    }
 });
