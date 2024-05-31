@@ -1,7 +1,7 @@
 <template>
-    <header class="bg-gray-950/75 backdrop-blur border-0 border-b border-solid border-surface0 sticky top-0 z-50">
+    <header class="bg-slate-950/75 backdrop-blur border-0 border-b border-solid border-slate-800 sticky top-0 z-50">
         <div class="mx-auto h-[64px] px-8 flex items-center justify-between gap-4">
-            <div class="flex-1"><span class="font-spaceGrotesk font-600 text-3xl text-red">Anant Narayan</span></div>
+            <div class="flex-1" />
             <div class="w-auto h-full items-center justify-center flex">
                 <div class="mr-6"><a href="#"
                         class="font-sans text-slate-300 text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Home</a>
