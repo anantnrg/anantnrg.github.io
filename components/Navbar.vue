@@ -4,7 +4,7 @@
             <div class="flex-1"><span class="font-spaceGrotesk font-600 text-3xl text-accent">Anant Narayan</span></div>
             <div class="w-auto h-full items-center justify-center flex">
                 <div class="mr-6"><a href="#"
-                        class="font-sans text-text text- font-500 decoration-none  hover:text-accent">Home</a>
+                        class="font-sans text-text text-sm font-500 decoration-none  hover:text-accent">Home</a>
                 </div>
                 <div class="mr-6"><a href="#"
                         class="font-sans text-text text-sm font-500 decoration-none hover:text-accent">Blog</a>
