@@ -4,16 +4,16 @@
             <div class="flex-1" />
             <div class="w-auto h-full items-center justify-center flex">
                 <div class="mr-6"><a href="#"
-                        class="font-sans text-slate-300 text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Home</a>
+                        class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Home</a>
                 </div>
                 <div class="mr-6"><a href="#"
-                        class="font-sans text-slate-400 text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Blog</a>
+                        class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Blog</a>
                 </div>
                 <div class="mr-6"><a href="#"
-                        class="font-sans text-slate-400 text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Project
+                        class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Project
                         Series</a></div>
                 <div><a href="#"
-                        class="font-sans text-slate-400 text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">About</a>
+                        class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">About</a>
                 </div>
             </div>
             <div class="flex-1 flex items-center justify-end">
