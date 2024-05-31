@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxt/content', '@nuxt/eslint', '@unocss/nuxt', 'nuxt-icon', "@nuxt/ui"],
+  modules: ['@nuxt/content', '@nuxt/eslint', '@unocss/nuxt', 'nuxt-icon'],
   vite: {
     css: {
       preprocessorOptions: {
