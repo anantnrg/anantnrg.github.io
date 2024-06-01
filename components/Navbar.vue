@@ -4,7 +4,7 @@
             <div class="flex-1" />
             <div class="w-auto h-full items-center justify-center flex">
                 <div class="mr-6"><a href="#"
-                        class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Home</a>
+                        class="font-sans text-sm/6 font-semibold decoration-none hover: text-[#A78BFA] transition-colors transition-duration-150">Home</a>
                 </div>
                 <div class="mr-6"><a href="#"
                         class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent transition-colors transition-duration-150">Blog</a>
