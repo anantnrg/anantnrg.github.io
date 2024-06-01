@@ -1,6 +1,12 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxt/content', '@nuxt/eslint', 'nuxt-icon', "@nuxtjs/tailwindcss"],
+  modules: [
+    '@nuxt/content',
+    '@nuxt/eslint',
+    'nuxt-icon',
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image"
+  ],
   vite: {
     css: {
       preprocessorOptions: {
