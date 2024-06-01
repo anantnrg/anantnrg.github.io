@@ -17,8 +17,8 @@
                 </div>
             </div>
             <div class="flex-1 flex items-center justify-end">
-                <a href="https://github.com/anantnrg">
-                    <Icon name="octicon:mark-github-24" class="text-text" size="24px" />
+                <a href="https://github.com/anantnrg"  class="flex items-center justify-center p-1.5 rounded-md transition-all hover:bg-slate-800">
+                    <Icon name="octicon:mark-github-24" class="text-slate-200" size="20px" />
                 </a>
             </div>
         </div>
