@@ -1,7 +1,8 @@
 <template>
     <header
         class="bg-slate-950/75 backdrop-blur border-0 border-b border-solid border-slate-800 sticky top-0 z-50 overflow-hidden">
-        <div class="mx-auto h-[64px] px-8 flex items-center justify-between gap-4">
+        <div class="relative mx-auto h-[64px] px-8 flex items-center justify-between gap-4 logo-cont">
+            <div class="w-[40px] h-[40px] rounded-full logo-bkg absolute top-0 left-0 -translate-y-2/4" />
             <div class="flex-1">
                 <NuxtImg src="/logo.png" class="w-8 h-8" />
             </div>
@@ -28,3 +29,16 @@
         </div>
     </header>
 </template>
+
+<style lang="scss">
+.logo-bkg {
+    background-image: linear-gradient(35deg, #E384FF, 20%, #5800FF);
+    filter: blur(20px);
+    opacity: 0.5;
+    transition: opacity 386ms ease-in-out;
+}
+
+.logo-cont:hover .logo-bkg {
+    opacity: 1;
+}
+</style>
