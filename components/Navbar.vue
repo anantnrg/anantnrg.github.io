@@ -5,7 +5,7 @@
             <div class="flex-1">
                 <div class="relative logo-cont w-10 h-10 flex items-center justify-center">
                     <div class="w-10 h-10 rounded-full logo-bkg absolute top-0 left-0" />
-                    <NuxtImg src="/logo.png" class="w-7 h-7 hover:scale-110 transition-all" />
+                    <NuxtImg src="/logo.png" class="w-7 h-7 transform-gpu transition-all duration-500 ease-in-out" />
                 </div>
             </div>
             <div class="w-auto h-full items-center justify-center flex">
@@ -35,12 +35,16 @@
 <style lang="scss">
 .logo-bkg {
     background-image: linear-gradient(45deg, #835CF6, 20%, #4721B6);
-    filter: blur(20px);
+    filter: blur(15px);
     opacity: 0.5;
     transition: opacity 386ms ease-in-out;
 }
 
 .logo-cont:hover .logo-bkg {
     opacity: 1;
+}
+
+.logo-cont:hover>img {
+    scale: 1.3;
 }
 </style>
