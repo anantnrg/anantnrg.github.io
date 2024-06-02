@@ -5,7 +5,7 @@
             <div class="flex-1">
                 <div class="relative logo-cont w-10 h-10 flex items-center justify-center">
                     <div class="w-10 h-10 rounded-full logo-bkg absolute top-0 left-0" />
-                    <NuxtImg src="/logo.png" class="w-7 h-7 transform-gpu transition-all duration-500 ease-in-out" />
+                    <NuxtImg src="/logo.png" class="w-8 h-8 transform-gpu transition-all duration-500 ease-in-out" />
                 </div>
             </div>
             <div class="w-auto h-full items-center justify-center flex">
