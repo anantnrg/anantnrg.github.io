@@ -31,22 +31,22 @@
                     </a>
                 </div>
                 <button class="md:hidden flex items-center p-2 text-slate-200" @click="toggleMenu">
-                    <Icon name="heroicons-outline:menu-alt-3" size="24px" />
+                    <Icon :name="isMenuOpen ? 'heroicons-outline:x' : 'heroicons-outline:menu-alt-3'" size="24px" />
                 </button>
             </div>
         </header>
         <transition name="slide-fade">
             <div v-if="isMenuOpen"
-                class="fixed inset-0 bg-slate-950/75 flex flex-col items-center justify-center z-40 transition-all duration-500 ease-in-out">
+                class="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center z-40 transition-all duration-500 ease-in-out">
                 <a href="#"
-                    class="py-4 text-lg font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Home</a>
+                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Home</a>
                 <a href="#"
-                    class="py-4 text-lg font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Blog</a>
+                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Blog</a>
                 <a href="#"
-                    class="py-4 text-lg font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Tutorial
+                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Tutorial
                     Series</a>
                 <a href="#"
-                    class="py-4 text-lg font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">About</a>
+                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">About</a>
             </div>
         </transition>
     </div>
@@ -59,9 +59,20 @@ export default {
             isMenuOpen: false
         };
     },
+    mounted() {
+        window.addEventListener('resize', this.handleResize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    },
     methods: {
         toggleMenu() {
             this.isMenuOpen = !this.isMenuOpen;
+        },
+        handleResize() {
+            if (window.innerWidth >= 768 && this.isMenuOpen) {
+                this.isMenuOpen = false;
+            }
         }
     }
 };
