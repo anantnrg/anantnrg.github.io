@@ -30,8 +30,11 @@
                         <Icon name="octicon:mark-github-24" class="text-slate-200" size="20px" />
                     </a>
                 </div>
-                <button class="md:hidden flex items-center p-2 text-slate-200" @click="toggleMenu">
-                    <Icon :name="isMenuOpen ? 'material-symbols:close' : 'material-symbols:menu-rounded'" size="20px" />
+                <button
+                    class="md:hidden flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700"
+                    @click="toggleMenu">
+                    <Icon :name="isMenuOpen ? 'material-symbols:close' : 'material-symbols:menu-rounded'"
+                        class="text-slate-200" size="20px" />
                 </button>
             </div>
         </header>
