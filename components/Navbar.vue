@@ -11,16 +11,16 @@
                     </div>
                 </div>
                 <div class="w-auto h-full items-center justify-center hidden md:flex">
-                    <div class="mr-6"><a href="#"
+                    <div class="mr-6"><a href="/"
                             class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Home</a>
                     </div>
-                    <div class="mr-6"><a href="#"
+                    <div class="mr-6"><a href="/blog"
                             class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Blog</a>
                     </div>
-                    <div class="mr-6"><a href="#"
+                    <div class="mr-6"><a href="/tutorial-series"
                             class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Tutorial
                             Series</a></div>
-                    <div><a href="#"
+                    <div><a href="/about"
                             class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">About</a>
                     </div>
                 </div>
@@ -41,14 +41,14 @@
         <transition name="slide-fade">
             <div v-if="isMenuOpen"
                 class="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center z-40 transition-all duration-500 ease-in-out">
-                <a href="#"
+                <a href="/"
                     class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Home</a>
-                <a href="#"
+                <a href="/blog"
                     class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Blog</a>
-                <a href="#"
+                <a href="/tutorial-series"
                     class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Tutorial
                     Series</a>
-                <a href="#"
+                <a href="/about"
                     class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">About</a>
             </div>
         </transition>
