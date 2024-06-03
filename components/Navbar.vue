@@ -29,10 +29,15 @@
                         class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700">
                         <Icon name="octicon:mark-github-24" class="text-slate-200" size="20px" />
                     </a>
+                    <button
+                        class="md:hidden flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700"
+                        @click="toggleMenu">
+                        <Icon :name="isDark ? 'carbon:moon' : 'carbon:sun'" class="text-slate-200" size="20px" />
+                    </button>
                 </div>
                 <button
                     class="md:hidden flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700"
-                    @click="toggleMenu">
+                    @click="toggleDark">
                     <Icon :name="isMenuOpen ? 'material-symbols:close' : 'material-symbols:menu-rounded'"
                         class="text-slate-200" size="20px" />
                 </button>
@@ -56,6 +61,12 @@
 </template>
 
 <script>
+import { useDark, useToggle } from '@vueuse/core';
+
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+
 export default {
     data() {
         return {
