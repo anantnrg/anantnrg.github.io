@@ -31,7 +31,7 @@
                     </a>
                 </div>
                 <button class="md:hidden flex items-center p-2 text-slate-200" @click="toggleMenu">
-                    <Icon :name="isMenuOpen ? 'iconoir:xmark' : 'iconoir:menu'" size="20px" />
+                    <Icon :name="isMenuOpen ? 'material-symbols:close' : 'material-symbols:menu-rounded'" size="20px" />
                 </button>
             </div>
         </header>
