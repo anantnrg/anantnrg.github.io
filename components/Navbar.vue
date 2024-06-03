@@ -1,3 +1,35 @@
+<script>
+import { useDark, useToggle } from '@vueuse/core';
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+
+export default {
+    data() {
+        return {
+            isMenuOpen: false,
+            isDark: isDark,
+        };
+    },
+    mounted() {
+        window.addEventListener('resize', this.handleResize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    },
+    methods: {
+        toggleMenu() {
+            this.isMenuOpen = !this.isMenuOpen;
+        },
+        handleResize() {
+            if (window.innerWidth >= 768 && this.isMenuOpen) {
+                this.isMenuOpen = false;
+            }
+        }
+    }
+};
+</script>
+
 <template>
     <div>
         <header
@@ -31,7 +63,7 @@
                     </a>
                     <button
                         class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700"
-                        @click="toggleDark">
+                        @click="toggleDark()">
                         <Icon :name="isDark ? 'carbon:moon' : 'carbon:sun'" class="text-slate-200" size="20px" />
                     </button>
                 </div>
@@ -59,39 +91,6 @@
         </transition>
     </div>
 </template>
-
-<script>
-import { useDark, useToggle } from '@vueuse/core';
-
-const isDark = useDark();
-
-export default {
-    data() {
-        return {
-            isMenuOpen: false
-        };
-    },
-    mounted() {
-        window.addEventListener('resize', this.handleResize);
-    },
-    beforeUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    },
-    methods: {
-        toggleMenu() {
-            this.isMenuOpen = !this.isMenuOpen;
-        },
-        toggleDark() {
-            useToggle(isDark);
-        },
-        handleResize() {
-            if (window.innerWidth >= 768 && this.isMenuOpen) {
-                this.isMenuOpen = false;
-            }
-        }
-    }
-};
-</script>
 
 <style lang="scss">
 .logo-bkg {
