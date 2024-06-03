@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     'nuxt-icon',
     "@nuxtjs/tailwindcss",
-    "@nuxt/image"
+    "@nuxt/image",
+    '@vueuse/nuxt',
   ],
   vite: {
     css: {
