@@ -63,9 +63,7 @@
 <script>
 import { useDark, useToggle } from '@vueuse/core';
 
-
 const isDark = useDark();
-const toggleDark = useToggle(isDark);
 
 export default {
     data() {
@@ -82,6 +80,9 @@ export default {
     methods: {
         toggleMenu() {
             this.isMenuOpen = !this.isMenuOpen;
+        },
+        toggleDark() {
+            useToggle(isDark);
         },
         handleResize() {
             if (window.innerWidth >= 768 && this.isMenuOpen) {
