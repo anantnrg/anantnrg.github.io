@@ -37,10 +37,7 @@
         </header>
         <transition name="slide-fade">
             <div v-if="isMenuOpen"
-                class="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center z-40 transition-all duration-500 ease-in-out">
-                <button class="absolute top-4 right-4 text-slate-200" @click="toggleMenu">
-                    <Icon name="heroicons-outline:x" size="32px" />
-                </button>
+                class="fixed inset-0 bg-slate-950/75 flex flex-col items-center justify-center z-40 transition-all duration-500 ease-in-out">
                 <a href="#"
                     class="py-4 text-lg font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Home</a>
                 <a href="#"
