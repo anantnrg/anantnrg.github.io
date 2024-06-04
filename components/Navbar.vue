@@ -55,7 +55,7 @@ export default {
                             class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">About</a>
                     </div>
                 </div>
-                <div class="flex-1 flex items-center justify-end">
+                <div class="flex-1 flex items-center justify-end gap-2">
                     <a href="https://github.com/anantnrg"
                         class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700">
                         <Icon name="octicon:mark-github-24" size="20px" />
@@ -69,23 +69,22 @@ export default {
                 <button
                     class="md:hidden flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
                     @click="toggleMenu">
-                    <Icon :name="isMenuOpen ? 'material-symbols:close' : 'material-symbols:menu-rounded'"
-                        class="text-slate-200" size="20px" />
+                    <Icon :name="isMenuOpen ? 'material-symbols:close' : 'material-symbols:menu-rounded'" size="20px" />
                 </button>
             </div>
         </header>
         <transition name="slide-fade">
             <div v-if="isMenuOpen"
-                class="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center z-40 transition-all duration-500 ease-in-out">
+                class="fixed inset-0 bg-slate-50/75 dark:bg-slate-950/75 flex flex-col items-center justify-center z-40 transition-all duration-500 ease-in-out">
                 <a href="/"
-                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Home</a>
+                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">Home</a>
                 <a href="/blog"
-                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Blog</a>
+                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">Blog</a>
                 <a href="/tutorial-series"
-                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Tutorial
+                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">Tutorial
                     Series</a>
                 <a href="/about"
-                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">About</a>
+                    class="py-2 text-sm font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">About</a>
             </div>
         </transition>
     </div>
