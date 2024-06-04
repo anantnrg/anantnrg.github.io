@@ -1,29 +1,12 @@
+<script setup>
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+</script>
 <script>
-import { ref } from 'vue';
-import { useDark, useToggle } from '@vueuse/core';
-
 export default {
-    setup() {
-        const isDark = useDark();
-        const toggleDarkMode = useToggle(isDark);
-        const isMenuOpen = ref(false);
-
-        const toggleMenu = () => {
-            isMenuOpen.value = !isMenuOpen.value;
-        };
-
-        const handleResize = () => {
-            if (window.innerWidth >= 768 && isMenuOpen.value) {
-                isMenuOpen.value = false;
-            }
-        };
-
+    data() {
         return {
-            isDark,
-            toggleDarkMode,
-            isMenuOpen,
-            toggleMenu,
-            handleResize
+            isMenuOpen: false,
         };
     },
     mounted() {
@@ -31,6 +14,16 @@ export default {
     },
     beforeUnmount() {
         window.removeEventListener('resize', this.handleResize);
+    },
+    methods: {
+        toggleMenu() {
+            this.isMenuOpen = !this.isMenuOpen;
+        },
+        handleResize() {
+            if (window.innerWidth >= 768 && this.isMenuOpen) {
+                this.isMenuOpen = false;
+            }
+        }
     }
 };
 </script>
@@ -68,7 +61,7 @@ export default {
                     </a>
                     <button
                         class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700"
-                        @click="toggleDark">
+                        @click="toggleDark()">
                         <Icon :name="isDark ? 'carbon:moon' : 'carbon:sun'" class="text-slate-200" size="20px" />
                     </button>
                 </div>
