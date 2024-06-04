@@ -2,6 +2,7 @@
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 </script>
+
 <script>
 export default {
     data() {
