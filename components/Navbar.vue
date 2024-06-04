@@ -43,31 +43,31 @@ export default {
                 </div>
                 <div class="w-auto h-full items-center justify-center hidden md:flex">
                     <div class="mr-6"><a href="/"
-                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Home</a>
+                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">Home</a>
                     </div>
                     <div class="mr-6"><a href="/blog"
-                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Blog</a>
+                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">Blog</a>
                     </div>
                     <div class="mr-6"><a href="/tutorial-series"
-                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">Tutorial
+                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">Tutorial
                             Series</a></div>
                     <div><a href="/about"
-                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-500 transition-colors duration-200">About</a>
+                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">About</a>
                     </div>
                 </div>
                 <div class="flex-1 flex items-center justify-end">
                     <a href="https://github.com/anantnrg"
-                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700">
-                        <Icon name="octicon:mark-github-24" class="text-slate-200" size="20px" />
+                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700">
+                        <Icon name="octicon:mark-github-24" size="20px" />
                     </a>
                     <button
-                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700"
+                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
                         @click="toggleDark()">
-                        <Icon :name="isDark ? 'carbon:moon' : 'carbon:sun'" class="text-slate-200" size="20px" />
+                        <Icon :name="isDark ? 'carbon:moon' : 'carbon:sun'" size="20px" />
                     </button>
                 </div>
                 <button
-                    class="md:hidden flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-800 hover:border-slate-700"
+                    class="md:hidden flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
                     @click="toggleMenu">
                     <Icon :name="isMenuOpen ? 'material-symbols:close' : 'material-symbols:menu-rounded'"
                         class="text-slate-200" size="20px" />
