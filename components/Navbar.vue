@@ -32,7 +32,7 @@ export default {
 <template>
     <div>
         <header
-            class="bg-slate-950/75 backdrop-blur border-0 border-b border-solid border-slate-800 sticky top-0 z-50 overflow-hidden">
+            class="bg-slate-50/75 dark:bg-slate-950/75 backdrop-blur border-0 border-b border-solid border-slate-400 dark:border-slate-800 sticky top-0 z-50 overflow-hidden">
             <div class="relative mx-auto h-[64px] px-8 flex items-center justify-between gap-4">
                 <div class="flex-1">
                     <div class="relative logo-cont w-10 h-10 flex items-center justify-center">
