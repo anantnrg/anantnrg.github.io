@@ -74,7 +74,7 @@ export default {
                 <button
                     class="md:hidden flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
                     @click="toggleMenu">
-                    <Icon :name="isMenuOpen ? 'material-symbols:close' : 'material-symbols:menu-rounded'" size="20px" />
+                    <Icon :name="isMenuOpen ? 'ph:x' : 'ph:list'" size="20px" />
                 </button>
             </div>
         </header>
