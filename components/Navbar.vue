@@ -56,15 +56,20 @@ export default {
                     </div>
                 </div>
                 <div class="flex-1 flex items-center justify-end gap-2">
+                    <button
+                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700">
+                        <Icon name="ph:magnifying-glass-duotone" size="20px" />
+                    </button>
+                    <button
+                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
+                        @click="toggleDark()">
+                        <Icon :name="$colorMode.preference === 'dark' ? 'ph:moon-duotone' : 'ph:sun-duotone'"
+                            size="20px" />
+                    </button>
                     <a href="https://github.com/anantnrg"
                         class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700">
                         <Icon name="octicon:mark-github-24" size="20px" />
                     </a>
-                    <button
-                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
-                        @click="toggleDark()">
-                        <Icon :name="colorMode.value === 'dark' ? 'carbon:moon' : 'carbon:sun'" size="20px" />
-                    </button>
                 </div>
                 <button
                     class="md:hidden flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
