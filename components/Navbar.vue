@@ -57,12 +57,11 @@ export default {
                 </div>
                 <div class="flex-1 flex items-center justify-end gap-2">
                     <button
-                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700 relative">
+                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700 relative" title="Search (Ctrl + K)">
                         <Icon name="ph:magnifying-glass-duotone" size="20px" />
-                        <div class="flex items-center justify-center absolute top-8 px-4 bg-slate-200 dark:bg-slate-950 rounded-md border border-slate-300 dark:border-slate-800 transition-all text-sm">Search</div>
                     </button>
                     <button
-                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
+                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700" :title="$colorMode.preference === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
                         @click="toggleDark()">
                         <Icon :name="$colorMode.preference === 'dark' ? 'ph:moon-duotone' : 'ph:sun-duotone'"
                             size="20px" />
