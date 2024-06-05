@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
     '@vueuse/nuxt',
+    '@nuxtjs/color-mode'
   ],
   vite: {
     css: {

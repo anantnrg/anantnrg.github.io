@@ -1,6 +1,6 @@
 <script setup>
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
+const colorMode = useColorMode();
+const toggleDark = () => (colorMode.preference = (colorMode.value === 'light' ? 'dark' : 'light'));
 </script>
 
 <script>
@@ -63,7 +63,7 @@ export default {
                     <button
                         class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
                         @click="toggleDark()">
-                        <Icon :name="isDark ? 'carbon:moon' : 'carbon:sun'" size="20px" />
+                        <Icon :name="colorMode.value === 'dark' ? 'carbon:moon' : 'carbon:sun'" size="20px" />
                     </button>
                 </div>
                 <button
