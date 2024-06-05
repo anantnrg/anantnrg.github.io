@@ -32,7 +32,7 @@ export default {
 <template>
     <div>
         <header
-            class="bg-slate-50/75 dark:bg-slate-950/75 backdrop-blur border-0 border-b border-solid border-slate-400 dark:border-slate-800 sticky top-0 z-50 overflow-hidden">
+            class="bg-slate-50/75 dark:bg-slate-950/75 backdrop-blur border-0 border-b border-solid border-slate-400 dark:border-slate-800 sticky top-0 z-50">
             <div class="relative mx-auto h-[64px] px-8 flex items-center justify-between gap-4">
                 <div class="flex-1">
                     <div class="relative logo-cont w-10 h-10 flex items-center justify-center">
@@ -57,8 +57,9 @@ export default {
                 </div>
                 <div class="flex-1 flex items-center justify-end gap-2">
                     <button
-                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700">
+                        class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700 relative">
                         <Icon name="ph:magnifying-glass-duotone" size="20px" />
+                        <div class="flex items-center justify-center absolute top-8 px-4 bg-slate-200 dark:bg-slate-950 rounded-md border border-slate-300 dark:border-slate-800 transition-all text-sm">Search</div>
                     </button>
                     <button
                         class="flex items-center justify-center p-1.5 border border-transparent rounded-md transition-all duration-200 hover:bg-slate-200 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700"
