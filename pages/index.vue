@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col overflow-auto">
-    <div class="w-full min-h-screen relative select-none">
+    <div class="w-full min-h-full relative select-none">
       <div class="grid-bkg" />
     </div>
   </div>
