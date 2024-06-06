@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto flex flex-col flex-grow">
+  <div class="w-full h-full flex flex-col overflow-auto">
     <div class="w-full min-h-screen relative select-none">
       <div class="grid-bkg" />
     </div>
