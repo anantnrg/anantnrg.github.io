@@ -1,5 +1,6 @@
 <template>
-  <div class="antialiased w-full h-full flex flex-col bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-200 relative">
+  <div
+    class="antialiased w-full h-full flex flex-col bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-200 relative">
     <NavBar />
     <NuxtPage />
   </div>
