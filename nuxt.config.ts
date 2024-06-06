@@ -9,15 +9,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/color-mode'
   ],
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "~/assets/_catppuccin.scss" as *;'
-        }
-      }
-    }
-  },
   colorMode: {
     classSuffix: ''
   }
