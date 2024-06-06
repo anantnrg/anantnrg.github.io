@@ -1,7 +1,8 @@
 <template>
   <div class="w-full h-full flex flex-col overflow-auto">
     <div class="w-full min-h-full relative select-none">
-      <div class="grid-bkg" />
+      <div
+        class="absolute inset-0 h-full w-full bg-white bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
     </div>
   </div>
 </template>
@@ -11,14 +12,5 @@
 </script>
 
 <style>
-.grid-bkg {
-  width: 100%;
-  height: 100%;
-  /* background-image:
-    linear-gradient(to right, rgba(88, 0, 255, 0.4) 2px, transparent 2px),
-    linear-gradient(to bottom, rgba(88, 0, 255, 0.4) 2px, transparent 2px); */
-  background-size: 2rem 2rem;
-  background-position: center center;
-  background-color: #11111b;
-}
+
 </style>
