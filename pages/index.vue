@@ -14,9 +14,9 @@
 .grid-bkg {
   width: 100%;
   height: 100%;
-  background-image:
+  /* background-image:
     linear-gradient(to right, rgba(88, 0, 255, 0.4) 2px, transparent 2px),
-    linear-gradient(to bottom, rgba(88, 0, 255, 0.4) 2px, transparent 2px);
+    linear-gradient(to bottom, rgba(88, 0, 255, 0.4) 2px, transparent 2px); */
   background-size: 2rem 2rem;
   background-position: center center;
   background-color: #11111b;
