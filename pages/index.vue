@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full flex flex-col overflow-auto">
     <div class="w-full min-h-full relative select-none">
-      <div class="dark:grid-bkg-dark grid-bkg" />
+      <div class="dark:dot-bkg-dark dot-bkg" />
     </div>
   </div>
 </template>
@@ -11,17 +11,15 @@
 </script>
 
 <style lang="scss">
-.grid-bkg {
+.dot-bkg {
   width: 100%;
   height: 100%;
-  background-image:
-    linear-gradient(to right, rgba(#475569, 0.4) 2px, transparent 2px),
-    linear-gradient(to bottom, rgba(#475569, 0.4) 2px, transparent 2px);
-  background-size: 6rem 6rem;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 16px 16px;
   background-position: center center;
 }
 
-.grid-bkg-dark {
+.dot-bkg-dark {
   width: 100%;
   height: 100%;
   background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
