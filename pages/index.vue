@@ -24,10 +24,7 @@
 .grid-bkg-dark {
   width: 100%;
   height: 100%;
-  background-image:
-    linear-gradient(to right, rgba(#475569, 0.2) 2px, transparent 2px),
-    linear-gradient(to bottom, rgba(#475569, 0.2) 2px, transparent 2px);
-  background-size: 6rem 6rem;
-  background-position: center center;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 16px 16px;
 }
 </style>
