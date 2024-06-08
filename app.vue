@@ -17,7 +17,7 @@ html,
 body,
 #__nuxt,
 #__layout {
-  height: 100% !important;
-  width: 100% !important;
+  height: 100%;
+  width: 100%;
 }
 </style>
