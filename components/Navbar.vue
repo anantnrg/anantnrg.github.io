@@ -32,7 +32,7 @@ export default {
 <template>
     <div>
         <header
-            class="w-full bg-slate-50/75 dark:bg-slate-950/75 backdrop-blur border-0 border-b border-solid border-slate-400 dark:border-slate-800 fixed top-0 z-50">
+            class="w-full bg-slate-100/75 dark:bg-slate-950/75 backdrop-blur border-0 border-b border-solid border-slate-400 dark:border-slate-800 fixed top-0 z-50">
             <div class="relative mx-auto h-[64px] px-8 flex items-center justify-between gap-4">
                 <div class="flex-1">
                     <div class="relative logo-cont w-10 h-10 flex items-center justify-center">
@@ -43,7 +43,7 @@ export default {
                 </div>
                 <div class="w-auto h-full items-center justify-center hidden md:flex">
                     <div class="mr-6"><a href="/"
-                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">Home</a>
+                            class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-800 dark:hover:text-accent-500 transition-colors duration-200">Home</a>
                     </div>
                     <div class="mr-6"><a href="/blog"
                             class="font-sans text-sm/6 font-semibold decoration-none hover:text-accent-700 dark:hover:text-accent-500 transition-colors duration-200">Blog</a>
