@@ -1,6 +1,8 @@
+<!-- Thanks Tibix:https://codepen.io/Tibixx/pen/xmOaWe -->
+
 <template>
-  <div>
-    
+  <div class="overflow-hidden">
+    <div />
   </div>
 </template>
 
