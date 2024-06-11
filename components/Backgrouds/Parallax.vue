@@ -2,8 +2,8 @@
 
 <template>
   <div class="overflow-hidden">
-    <div id="glow" class="glow" />
-    <div id="overlay" class="overlay" />
+    <div id="glow" class="z-1 absolute top-0 left-0 w-full h-full" />
+    <div id="overlay" class="z-[3] opacity-80 absolute top-0 left-0 w-full h-full" />
     <canvas id="canvas" />
   </div>
 </template>
