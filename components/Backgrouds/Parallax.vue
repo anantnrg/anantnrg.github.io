@@ -2,7 +2,9 @@
 
 <template>
   <div class="overflow-hidden">
-    <div />
+    <div id="glow" />
+    <div id="overlay" />
+    <canvas id="canvas" />
   </div>
 </template>
 
@@ -10,6 +12,4 @@
 
 </script>
 
-<style>
-
-</style>
+<style></style>
