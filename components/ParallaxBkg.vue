@@ -44,7 +44,7 @@ const updateStars = () => {
 };
 
 const animate = (timestamp: number, ctx: CanvasRenderingContext2D) => {
-  if (timestamp - lastFrameTime >= 1000 / fps) {
+  if (timestamp - lastFrameTime >= 3000 / fps) {
     drawStars(ctx);
     updateStars();
     lastFrameTime = timestamp;
