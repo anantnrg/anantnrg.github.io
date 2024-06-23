@@ -1,8 +1,6 @@
 <template>
-  <div class="w-full h-full">
-    <div class="w-full h-full absolute flex gap-x-[5%] items-center justify-center z-[2]">
-      <div class="h-[60%] w-[20%] rounded-[50%] bg-slate-500" />
-    </div>
+  <div class="w-full h-full absolute">
+    <canvas id="canvas" class="w-full h-full" />
   </div>
 </template>
 
