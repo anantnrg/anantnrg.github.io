@@ -1,7 +1,5 @@
 <template>
-  <div class="w-full h-full absolute">
-    <canvas id="canvas" class="w-full h-full" />
-  </div>
+  <canvas ref="canvas" class="w-full h-full absolute z-10 bg-slate-950" />
 </template>
 
 <script setup lang="ts">
@@ -92,4 +90,8 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style></style>
+<style scoped>
+canvas {
+  display: block;
+}
+</style>
