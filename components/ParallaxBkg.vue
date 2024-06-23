@@ -8,7 +8,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 const canvas = ref<HTMLCanvasElement | null>(null);
 let animationFrameId: number | null = null;
 let lastFrameTime = 0;
-const gap = 20;
+const gap = 40;
 const fps = 30;
 const stars: Array<{ x: number; y: number; opacity: number; fade: number }> = [];
 
