@@ -10,7 +10,7 @@ let animationFrameId: number | null = null;
 let lastFrameTime = 0;
 const gap = 40;
 const fps = 30;
-const visiblePercentage = 0.7;
+const visiblePercentage = 0.1;
 const stars: Array<{ x: number; y: number; opacity: number; fade: number; targetOpacity: number }> = [];
 
 const createStars = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
