@@ -10,7 +10,8 @@ let animationFrameId: number | null = null;
 let lastFrameTime = 0;
 const gap = 40;
 const fps = 30;
-const stars: Array<{ x: number; y: number; opacity: number; fade: number }> = [];
+const visiblePercentage = 0.7;
+const stars: Array<{ x: number; y: number; opacity: number; fade: number; visible: boolean }> = [];
 
 const createStars = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
   stars.length = 0;
@@ -21,6 +22,7 @@ const createStars = (ctx: CanvasRenderingContext2D, width: number, height: numbe
         y,
         opacity: Math.random(),
         fade: Math.random() * 0.05,
+        visible: Math.random() < visiblePercentage,
       });
     }
   }
@@ -29,8 +31,12 @@ const createStars = (ctx: CanvasRenderingContext2D, width: number, height: numbe
 const drawStars = (ctx: CanvasRenderingContext2D) => {
   ctx.clearRect(0, 0, canvas.value!.width, canvas.value!.height);
   stars.forEach(star => {
-    ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-    ctx.fillRect(star.x, star.y, 1, 1);
+    if (star.visible) {
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, 1, 0, 2 * Math.PI, false);
+      ctx.fill();
+    }
   });
 };
 
@@ -39,12 +45,13 @@ const updateStars = () => {
     star.opacity += star.fade;
     if (star.opacity <= 0 || star.opacity >= 1) {
       star.fade *= -1;
+      star.visible = Math.random() < visiblePercentage;
     }
   });
 };
 
 const animate = (timestamp: number, ctx: CanvasRenderingContext2D) => {
-  if (timestamp - lastFrameTime >= 3000 / fps) {
+  if (timestamp - lastFrameTime >= 1000 / fps) {
     drawStars(ctx);
     updateStars();
     lastFrameTime = timestamp;
