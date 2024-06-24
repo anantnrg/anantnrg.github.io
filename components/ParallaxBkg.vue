@@ -10,19 +10,20 @@ let animationFrameId: number | null = null;
 let lastFrameTime = 0;
 const gap = 40;
 const fps = 30;
-const visiblePercentage = 0.7;
-const stars: Array<{ x: number; y: number; opacity: number; fade: number; visible: boolean }> = [];
+const visiblePercentage = 0.7; // 70% of stars visible
+const stars: Array<{ x: number; y: number; opacity: number; fade: number; targetOpacity: number }> = [];
 
 const createStars = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
   stars.length = 0;
   for (let x = 0; x < width; x += gap) {
     for (let y = 0; y < height; y += gap) {
+      const isVisible = Math.random() < visiblePercentage;
       stars.push({
         x,
         y,
-        opacity: Math.random(),
+        opacity: isVisible ? 1 : 0,
         fade: Math.random() * 0.05,
-        visible: Math.random() < visiblePercentage,
+        targetOpacity: isVisible ? 1 : 0,
       });
     }
   }
@@ -31,21 +32,32 @@ const createStars = (ctx: CanvasRenderingContext2D, width: number, height: numbe
 const drawStars = (ctx: CanvasRenderingContext2D) => {
   ctx.clearRect(0, 0, canvas.value!.width, canvas.value!.height);
   stars.forEach(star => {
-    if (star.visible) {
-      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, 1, 0, 2 * Math.PI, false);
-      ctx.fill();
-    }
+    ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, 1, 0, 2 * Math.PI, false);
+    ctx.fill();
   });
 };
 
 const updateStars = () => {
   stars.forEach(star => {
-    star.opacity += star.fade;
-    if (star.opacity <= 0 || star.opacity >= 1) {
-      star.fade *= -1;
-      star.visible = Math.random() < visiblePercentage;
+    if (star.opacity !== star.targetOpacity) {
+      if (star.opacity < star.targetOpacity) {
+        star.opacity += star.fade;
+        if (star.opacity > star.targetOpacity) {
+          star.opacity = star.targetOpacity;
+        }
+      } else {
+        star.opacity -= star.fade;
+        if (star.opacity < star.targetOpacity) {
+          star.opacity = star.targetOpacity;
+        }
+      }
+    }
+
+    // Randomly change the target opacity to simulate fading in and out
+    if (Math.random() < 0.01) {
+      star.targetOpacity = star.targetOpacity === 1 ? 0 : 1;
     }
   });
 };
