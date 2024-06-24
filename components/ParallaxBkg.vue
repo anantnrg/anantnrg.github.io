@@ -10,7 +10,7 @@ let animationFrameId: number | null = null;
 let lastFrameTime = 0;
 const gap = 40;
 const fps = 30;
-const visiblePercentage = 0.7; // 70% of stars visible
+const visiblePercentage = 0.7;
 const stars: Array<{ x: number; y: number; opacity: number; fade: number; targetOpacity: number }> = [];
 
 const createStars = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
@@ -55,7 +55,6 @@ const updateStars = () => {
       }
     }
 
-    // Randomly change the target opacity to simulate fading in and out
     if (Math.random() < 0.01) {
       star.targetOpacity = star.targetOpacity === 1 ? 0 : 1;
     }
