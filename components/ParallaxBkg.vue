@@ -1,10 +1,10 @@
 <template>
-  <canvas ref="canvas" class="w-full h-full absolute z-10 bg-slate-950"></canvas>
+  <canvas ref="canvas" class="w-full h-full absolute z-10 bg-slate-950" />
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watchEffect } from 'vue';
-import useColorMode from '@nuxtjs/color-mode';
+import { useColorMode } from '@/composables/useColorMode';
 
 const canvas = ref<HTMLCanvasElement | null>(null);
 let animationFrameId: number | null = null;
@@ -14,7 +14,7 @@ const fps = 30;
 const visiblePercentage = 0.7;
 const stars: Array<{ x: number; y: number; opacity: number; fade: number; targetOpacity: number }> = [];
 
-const colorMode = useColorMode();
+const { colorMode } = useColorMode();
 let starColor = colorMode.value === 'dark' ? 'rgba(255, 255, 255, OPACITY)' : 'rgba(0, 0, 0, OPACITY)';
 
 const createStars = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
