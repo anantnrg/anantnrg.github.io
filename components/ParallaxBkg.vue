@@ -3,15 +3,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watchEffect } from 'vue';
+import useColorMode from '@nuxtjs/color-mode';
 
 const canvas = ref<HTMLCanvasElement | null>(null);
 let animationFrameId: number | null = null;
 let lastFrameTime = 0;
 const gap = 40;
 const fps = 30;
-const visiblePercentage = 0.4;
+const visiblePercentage = 0.7;
 const stars: Array<{ x: number; y: number; opacity: number; fade: number; targetOpacity: number }> = [];
+
+const colorMode = useColorMode();
+let starColor = colorMode.value === 'dark' ? 'rgba(255, 255, 255, OPACITY)' : 'rgba(0, 0, 0, OPACITY)';
 
 const createStars = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
   stars.length = 0;
@@ -33,7 +37,7 @@ const drawStars = (ctx: CanvasRenderingContext2D) => {
   ctx.clearRect(0, 0, canvas.value!.width, canvas.value!.height);
   stars.forEach(star => {
     if (star.opacity > 0) {
-      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+      ctx.fillStyle = starColor.replace('OPACITY', star.opacity.toString());
       ctx.beginPath();
       ctx.arc(star.x, star.y, 1, 0, 2 * Math.PI, false);
       ctx.fill();
@@ -109,6 +113,10 @@ onMounted(() => {
       window.addEventListener('resize', handleResize);
     }
   }
+});
+
+watchEffect(() => {
+  starColor = colorMode.value === 'dark' ? 'rgba(255, 255, 255, OPACITY)' : 'rgba(0, 0, 0, OPACITY)';
 });
 
 onBeforeUnmount(() => {
