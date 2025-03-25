@@ -1,0 +1,58 @@
+---
+
+---
+
+<script>
+    window.onload = () => {
+        const grid = document.querySelector(".grid-overlay");
+        let moveX = 0,
+            moveY = 0;
+        let targetX = 0,
+            targetY = 0;
+
+        document.addEventListener("mousemove", (e) => {
+            targetX = (e.clientX / window.innerWidth - 0.5) * 40;
+            targetY = (e.clientY / window.innerHeight - 0.5) * 40;
+        });
+
+        function animateGrid() {
+            if (!grid) return;
+
+            moveX += (targetX - moveX) * 0.1;
+            moveY += (targetY - moveY) * 0.1;
+
+            const time = Date.now() * 0.00016;
+            const driftX = Math.sin(time) * 120;
+            const driftY = Math.cos(time) * 120;
+
+            grid.style.backgroundPosition = `${moveX + driftX}px ${moveY + driftY}px`;
+
+            requestAnimationFrame(animateGrid);
+        }
+
+        animateGrid();
+    };
+</script>
+
+<div class="grid-overlay"></div>
+
+<style>
+    .grid-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px
+            );
+        background-size: 48px 48px;
+        z-index: -1;
+        transition: background-position 0.05s linear;
+    }
+</style>
