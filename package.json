@@ -1,32 +1,14 @@
 {
+  "name": "anantnrg-dev",
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@nuxt/content": "^2.12.1",
-    "@nuxt/image": "^1.7.0",
-    "@nuxt/ui": "^2.16.0",
-    "@nuxtjs/tailwindcss": "^6.12.0",
-    "nuxt": "^3.11.2"
-  },
-  "devDependencies": {
-    "@nuxt/eslint": "^0.3.13",
-    "@unocss/nuxt": "^0.60.3",
-    "@unocss/preset-web-fonts": "^0.60.3",
-    "@vueuse/core": "^10.10.0",
-    "@vueuse/nuxt": "^10.10.0",
-    "eslint": "^9.3.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "nuxt-icon": "^0.6.10",
-    "prettier": "^3.2.5",
-    "sass": "^1.77.2",
-    "typescript": "^5.4.5"
+    "astro": "^5.5.4"
   }
 }
