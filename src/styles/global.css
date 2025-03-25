@@ -14,14 +14,14 @@
         bottom: -2px;
         width: 0%;
         height: 2px;
-        background: #89b4fa;
+        background: #a277ff;
         transition:
             width 0.3s ease-in-out,
             left 0.3s ease-in-out;
     }
 
     .nav-link:hover {
-        color: #89b4fa;
+        color: #;
     }
 
     .nav-link:hover::after {
