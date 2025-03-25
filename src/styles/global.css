@@ -31,22 +31,22 @@
 }
 
 @font-face {
-    font-family: "OCR A";
-    src: url("/fonts/OCRA Std.otf") format("otf");
+    font-family: "ocra";
+    src: url("/fonts/OCRA Std.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Eurostile Normal";
-    src: url("/fonts/Eurostile Normal.ttf") format("ttf");
+    font-family: "eurostile_nr";
+    src: url("/fonts/Eurostile Normal.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Eurostile Bold";
-    src: url("/fonts/Eurostile Bold.ttf") format("ttf");
-    font-weight: normal;
+    font-family: "eurostile_bold";
+    src: url("/fonts/Eurostile Bold.ttf") format("truetype");
+    font-weight: bold;
     font-style: normal;
 }
