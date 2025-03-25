@@ -30,9 +30,9 @@ import "./src/styles/global.css";
                 moveX += (targetX - moveX) * 0.1;
                 moveY += (targetY - moveY) * 0.1;
 
-                const time = Date.now() * 0.0005;
-                const driftX = Math.sin(time) * 40;
-                const driftY = Math.cos(time) * 40;
+                const time = Date.now() * 0.00016;
+                const driftX = Math.sin(time) * 120;
+                const driftY = Math.cos(time) * 120;
 
                 grid.style.backgroundPosition = `${moveX + driftX}px ${moveY + driftY}px`;
 
