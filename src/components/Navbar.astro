@@ -1,5 +1,6 @@
 <header
     class="fixed top-0 left-0 w-full bg-[#11111b]/24 border-b border-white/10 z-50 transition-all duration-300"
+    x-data="{ open: false }"
 >
     <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <a
@@ -9,19 +10,43 @@
             Anant Narayan
         </a>
 
-        <ul class="flex space-x-6 font-[ocra] text-sm">
+        <ul class="hidden md:flex space-x-6 font-[ocra] text-sm">
+            <li><a href="/" class="nav-link">/home</a></li>
+            <li><a href="/blog" class="nav-link">/blog</a></li>
+            <li><a href="/projects" class="nav-link">/projects</a></li>
+            <li><a href="/about" class="nav-link">/about</a></li>
+        </ul>
+
+        <button
+            @click="open = !open"
+            class="md:hidden hover:text-[#a277ff] transition-colors text-2xl focus:outline-none"
+        >
+            ☰
+        </button>
+    </nav>
+
+    <div
+        x-show="open"
+        x-transition
+        class="md:hidden absolute top-full left-0 w-full bg-[#11111b]/95 border-b border-white/10 flex justify-center"
+    >
+        <ul
+            class="flex flex-col items-start space-y-4 py-4 font-[ocra] text-sm"
+        >
             <li>
-                <a href="/blog" class="nav-link">/home</a>
+                <a href="/" class="nav-link" @click="open = false">/home</a>
             </li>
             <li>
-                <a href="/blog" class="nav-link">/blog</a>
+                <a href="/blog" class="nav-link" @click="open = false">/blog</a>
             </li>
             <li>
-                <a href="/projects" class="nav-link">/projects</a>
+                <a href="/projects" class="nav-link" @click="open = false"
+                    >/projects</a>
             </li>
             <li>
-                <a href="/about" class="nav-link">/about</a>
+                <a href="/about" class="nav-link" @click="open = false"
+                    >/about</a>
             </li>
         </ul>
-    </nav>
+    </div>
 </header>
