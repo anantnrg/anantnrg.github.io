@@ -19,18 +19,26 @@ export async function getStaticPaths() {
 }
 
 const { category, posts } = Astro.props;
+const categoryNames = {
+    "embedded-rust-stm32": "Embedded Rust on an STM32",
+};
 ---
 
 <Layout>
-    <h1>Posts in {category}</h1>
-    <ul>
+    <h1
+        class="text-[#a277ff] font-[ocra] flex items-center justify-center text-4xl"
+    >
+        {categoryNames[category] || category}
+    </h1>
+    <ul class="mt-4">
         {
-            posts.map((post) => (
-                <li>
-                    <a href={`/blog/${category}/${post.slug}`}>
+            posts.map((post, index) => (
+                <a href={`/blog/${category}/${post.slug}`} class="block">
+                    <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer">
+                        <span class="mr-2">{index + 1}.</span>
                         {post.data.title}
-                    </a>
-                </li>
+                    </li>
+                </a>
             ))
         }
     </ul>
