@@ -7,6 +7,7 @@ const blog = defineCollection({
     description: z.string(),
     date: z.string().transform((str) => new Date(str)),
     category: z.string(),
+    author: z.string(),
   }),
 });
 
