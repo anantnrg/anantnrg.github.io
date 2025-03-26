@@ -35,6 +35,10 @@
         color: var(--color-accent);
     }
 
+    .prose {
+        color: var(--color-text-grey);
+    }
+
     .prose h1,
     .prose h2,
     .prose h3,
