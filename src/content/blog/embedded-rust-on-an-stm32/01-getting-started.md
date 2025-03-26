@@ -1,7 +1,7 @@
 ---
-title: "Getting Started with Embedded Rust on STM32"
-description: "Learn how to set up an STM32 microcontroller for Rust development."
-date: "2024-03-25"
+title: "Getting Started with STM32"
+description: "A beginner's guide for embedded Rust on STM32."
+date: "2024-03-26"
 category: "embedded-rust-on-an-stm32"
 ---
 

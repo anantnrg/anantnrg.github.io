@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+
+    // Get unique categories
+    const categories = [
+        ...new Set(posts.map((post) => post.data.category).filter(Boolean)),
+    ];
+
+    return categories.map((category) => ({
+        params: { category },
+        props: {
+            category,
+            posts: posts.filter((post) => post.data.category === category),
+        },
+    }));
+}
+
+const { category, posts } = Astro.props;
+---
+
+<html>
+    <head>
+        <title>Posts in {category}</title>
+    </head>
+    <body>
+        <h1>Posts in {category}</h1>
+        <ul>
+            {
+                posts.map((post) => (
+                    <li>
+                        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </body>
+</html>

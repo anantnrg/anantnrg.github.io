@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+
+    return posts.map((post) => {
+        if (!post.data.category) {
+            console.warn(`[WARN] Missing category in post: ${post.slug}`);
+        }
+        return {
+            params: {
+                category: post.data.category || "uncategorized", // Fallback category
+                slug: post.slug,
+            },
+            props: { post },
+        };
+    });
+}
+
+const { post } = Astro.props;
+---
+
+<html>
+    <head>
+        <title>{post.data.title}</title>
+    </head>
+    <body>
+        <h1>{post.data.title}</h1>
+        <p>{post.data.description}</p>
+        <article>
+            {post.body}
+        </article>
+    </body>
+</html>
