@@ -27,9 +27,16 @@ const { Content } = await render(Astro.props.post);
         <h1 class="text-5xl text-text-grey font-[ocra] text-center">
             {Astro.props.post.data.title}
         </h1>
-        <p class="font-[ocra] text-lg text-text-grey mt-4">
-            {Astro.props.post.data.author}
-            {Astro.props.post.data.date}
+        <p class="font-space text-xl text-text-grey mt-2 text-center">
+            {Astro.props.post.data.author} •
+            {
+                Astro.props.post.data.date.toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                })
+            }
         </p>
         <article class="prose prose-lg dark:prose-invert max-w-3xl">
             <Content />

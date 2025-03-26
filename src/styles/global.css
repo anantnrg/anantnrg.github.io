@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -5,6 +6,7 @@
     --color-accent: #a277ff;
     --color-dark-bg: #11111b;
     --color-text-grey: #cdd6f4;
+    --font-space: "Space Grotesk", sans-serif;
 }
 
 @layer utilities {
@@ -48,19 +50,5 @@
     font-family: "ocra";
     src: url("/fonts/OCRA Std.otf") format("opentype");
     font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "eurostile_nr";
-    src: url("/fonts/Eurostile Normal.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "eurostile_bold";
-    src: url("/fonts/Eurostile Bold.ttf") format("truetype");
-    font-weight: bold;
     font-style: normal;
 }
