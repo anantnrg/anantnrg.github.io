@@ -1,19 +1,48 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import readingTime from "reading-time";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
-    return posts.map((post) => ({
-        params: { slug: post.slug },
-        props: { post },
-    }));
+
+    return posts.map((post) => {
+        return {
+            params: {
+                category: post.data.category || "uncategorized",
+                slug: post.slug,
+            },
+            props: { post },
+        };
+    });
 }
 
-const { post } = Astro.props;
+const { Content } = await render(Astro.props.post);
+const stats = readingTime(Astro.props.post.body);
 ---
 
-<h1>{post.data.title}</h1>
-<p>{post.data.description}</p>
-<article>
-    {post.body}
-</article>
+<Layout>
+    <div class="max-w-4xl mx-auto p-6 leading-loose">
+        <h1 class="text-5xl text-accent font-[ocra] text-center">
+            {Astro.props.post.data.title}
+        </h1>
+        <p
+            class="font-space text-xl text-text-grey mt-2 text-center font-semibold"
+        >
+            {Astro.props.post.data.author} •
+            {
+                Astro.props.post.data.date.toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                })
+            } • {stats.words} words • {stats.text}
+        </p>
+        <article
+            class="prose prose-lg dark:prose-invert max-w-4xl font-space mt-4"
+        >
+            <Content />
+        </article>
+    </div>
+</Layout>

@@ -2,10 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
+const posts = (await getCollection("blog")).sort(
+    (a, b) => new Date(b.data.date) - new Date(a.data.date),
+);
 
 const standalonePosts = posts.filter((post) => !post.data.category);
 const groupedPosts = posts.filter((post) => post.data.category);
+
+const categoryNames = {
+    "embedded-rust-stm32": "Embedded Rust on an STM32",
+};
 
 const categories = Array.from(
     new Set(groupedPosts.map((p) => p.data.category)),
@@ -14,29 +20,35 @@ const categories = Array.from(
 
 <Layout>
     <h1
-        class="text-[#a277ff] font-[ocra] flex items-center justify-center text-3xl"
+        class="text-[#a277ff] font-[ocra] flex items-center justify-center text-4xl"
     >
         Blog Posts
     </h1>
 
-    <h2>Standalone Posts</h2>
+    <h2 class="font-ocra text-3xl text-accent ml-4 my-6">Posts</h2>
     <ul>
         {
-            standalonePosts.map((post) => (
-                <li>
-                    <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-                </li>
+            standalonePosts.map((post, index) => (
+                <a href={`/blog/${post.slug}`} class="block">
+                    <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer">
+                        <span class="mr-2">{index + 1}.</span>
+                        {post.data.title}
+                    </li>
+                </a>
             ))
         }
     </ul>
 
-    <h2>Blog Categories</h2>
+    <h2 class="font-ocra text-3xl text-accent ml-4 my-6">Series</h2>
     <ul>
         {
-            categories.map((cat) => (
-                <li>
-                    <a href={`/blog/${cat}`}>{cat.toUpperCase()}</a>
-                </li>
+            categories.map((cat, index) => (
+                <a href={`/blog/${cat}`} class="block">
+                    <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer">
+                        <span class="mr-2">{index + 1}.</span>
+                        {categoryNames[cat] || cat}
+                    </li>
+                </a>
             ))
         }
     </ul>

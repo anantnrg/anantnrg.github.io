@@ -7,6 +7,7 @@
     --color-dark-bg: #11111b;
     --color-text-grey: #cdd6f4;
     --font-space: "Space Grotesk", sans-serif;
+    --font-ocra: "ocra", sans-serif;
 }
 
 @layer utilities {

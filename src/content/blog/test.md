@@ -5,5 +5,3 @@ date: "2024-03-25"
 category: ""
 author: "Anant Narayan"
 ---
-
-# Getting Started with Rust on an STM32

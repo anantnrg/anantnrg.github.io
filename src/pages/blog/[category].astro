@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -20,22 +21,17 @@ export async function getStaticPaths() {
 const { category, posts } = Astro.props;
 ---
 
-<html>
-    <head>
-        <title>Posts in {category}</title>
-    </head>
-    <body>
-        <h1>Posts in {category}</h1>
-        <ul>
-            {
-                posts.map((post) => (
-                    <li>
-                        <a href={`/blog/${category}/${post.slug}`}>
-                            {post.data.title}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-    </body>
-</html>
+<Layout>
+    <h1>Posts in {category}</h1>
+    <ul>
+        {
+            posts.map((post) => (
+                <li>
+                    <a href={`/blog/${category}/${post.slug}`}>
+                        {post.data.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>

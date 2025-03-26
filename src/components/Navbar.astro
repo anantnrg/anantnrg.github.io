@@ -2,7 +2,9 @@
     class="fixed top-0 left-0 w-full bg-[#11111b]/24 border-b border-white/10 z-50 transition-all duration-300"
     x-data="{ open: false }"
 >
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav
+        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center backdrop-blur-sm"
+    >
         <a
             href="/"
             class="text-2xl tracking-wide hover:text-[#a277ff] transition-colors duration-300 font-[ocra]"
@@ -41,11 +43,13 @@
             </li>
             <li>
                 <a href="/projects" class="nav-link" @click="open = false"
-                    >/projects</a>
+                    >/projects</a
+                >
             </li>
             <li>
                 <a href="/about" class="nav-link" @click="open = false"
-                    >/about</a>
+                    >/about</a
+                >
             </li>
         </ul>
     </div>

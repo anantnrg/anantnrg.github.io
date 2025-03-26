@@ -7,10 +7,6 @@ export async function getStaticPaths() {
     const posts = await getCollection("blog");
 
     return posts.map((post) => {
-        if (!post.data.category) {
-            console.warn(`[WARN] Missing category in post: ${post.slug}`);
-        }
-
         return {
             params: {
                 category: post.data.category || "uncategorized",
