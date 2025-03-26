@@ -2,4 +2,116 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout />
+<Layout>
+    <div class="w-full h-full flex flex-col items-center justify-center">
+        <h1 class="name-container text-center flex items-center">
+            <span id="typed-name"></span><span class="cursor" id="cursor"
+            ></span>
+        </h1>
+        <h2 class="role-container text-center flex items-center mt-4">
+            <span id="typed-role"></span><span class="cursor" id="role-cursor"
+            ></span>
+        </h2>
+
+        <script>
+            const nameText = "Anant Narayan";
+            const roles = [
+                "Avionics Engineer",
+                "Systems Programmer",
+                "Embedded Developer",
+                "Flight Software Engineer",
+            ];
+            let nameIndex = 0;
+            let roleIndex = 0;
+            let charIndex = 0;
+            const speed = 100;
+            const eraseSpeed = 50;
+            const delayBetweenRoles = 1500;
+
+            const typedName = document.getElementById("typed-name");
+            const typedRole = document.getElementById("typed-role");
+            const cursor = document.getElementById("cursor");
+            const roleCursor = document.getElementById("role-cursor");
+
+            function typeName() {
+                if (nameIndex < nameText.length) {
+                    typedName.textContent += nameText[nameIndex];
+                    nameIndex++;
+                    setTimeout(typeName, speed);
+                } else {
+                    cursor.classList.add("hidden");
+                    setTimeout(typeRole, 500);
+                }
+            }
+
+            function typeRole() {
+                roleCursor.style.display = "inline-block";
+                if (charIndex < roles[roleIndex].length) {
+                    typedRole.textContent += roles[roleIndex][charIndex];
+                    charIndex++;
+                    setTimeout(typeRole, speed);
+                } else {
+                    setTimeout(eraseRole, delayBetweenRoles);
+                }
+            }
+
+            function eraseRole() {
+                if (charIndex > 0) {
+                    typedRole.textContent = roles[roleIndex].substring(
+                        0,
+                        charIndex - 1,
+                    );
+                    charIndex--;
+                    setTimeout(eraseRole, eraseSpeed);
+                } else {
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeRole, 500);
+                }
+            }
+
+            window.addEventListener("load", typeName);
+        </script>
+    </div>
+</Layout>
+
+<style>
+    .name-container {
+        font-family: ocra, monospace;
+        font-size: 4rem;
+        color: #a277ff;
+    }
+
+    .role-container {
+        font-family: ocra, monospace;
+        font-size: 1.5em;
+        color: #a277ff;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 4px;
+        height: 4rem;
+        background-color: #a277ff;
+        margin-left: 10px;
+        animation: blink 0.8s infinite;
+
+        transition: opacity 0.8s linear;
+    }
+
+    .hidden {
+        opacity: 0;
+    }
+
+    #role-cursor {
+        height: 1.5em;
+        width: 2px;
+        margin-left: 5px;
+        display: none;
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
