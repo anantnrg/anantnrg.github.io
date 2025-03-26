@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+
+const standalonePosts = posts.filter((post) => !post.data.category);
+const groupedPosts = posts.filter((post) => post.data.category);
+
+const categories = Array.from(
+    new Set(groupedPosts.map((p) => p.data.category)),
+);
+---
+
+<Layout>
+    <h1
+        class="text-[#a277ff] font-[ocra] flex items-center justify-center text-3xl"
+    >
+        Blog Posts
+    </h1>
+
+    <h2>Standalone Posts</h2>
+    <ul>
+        {
+            standalonePosts.map((post) => (
+                <li>
+                    <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                </li>
+            ))
+        }
+    </ul>
+
+    <h2>Blog Categories</h2>
+    <ul>
+        {
+            categories.map((cat) => (
+                <li>
+                    <a href={`/blog/${cat}`}>{cat.toUpperCase()}</a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>
