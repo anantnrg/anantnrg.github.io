@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -18,18 +18,18 @@ export async function getStaticPaths() {
     });
 }
 
-const { post } = Astro.props;
+const { Content } = await render(Astro.props.post); // Properly render Markdown
 ---
 
 <html>
     <head>
-        <title>{post.data.title}</title>
+        <title>{Astro.props.post.data.title}</title>
     </head>
     <body>
-        <h1>{post.data.title}</h1>
-        <p>{post.data.description}</p>
+        <h1>{Astro.props.post.data.title}</h1>
+        <p>{Astro.props.post.data.description}</p>
         <article>
-            {post.body}
+            <Content />
         </article>
     </body>
 </html>
