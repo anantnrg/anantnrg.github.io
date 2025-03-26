@@ -11,7 +11,7 @@ export async function getStaticPaths() {
         }
         return {
             params: {
-                category: post.data.category || "uncategorized", // Fallback category
+                category: post.data.category || "uncategorized",
                 slug: post.slug,
             },
             props: { post },
@@ -19,12 +19,12 @@ export async function getStaticPaths() {
     });
 }
 
-const { Content } = await render(Astro.props.post); // Properly render Markdown
+const { Content } = await render(Astro.props.post);
 ---
 
 <Layout>
-    <div class="max-w-4xl mx-auto p-6 leading-loose">
-        <article class="prose prose-lg dark:prose-invert w-full">
+    <div class="max-w-3xl mx-auto p-6 leading-loose">
+        <article class="prose prose-lg dark:prose-invert max-w-3xl">
             <Content />
         </article>
     </div>

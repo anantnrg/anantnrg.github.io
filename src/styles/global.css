@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+    --color-accent: #a277ff;
+    --color-dark-bg: #11111b;
+    --color-text-grey: #cdd6f4;
+}
+
 @layer utilities {
     .nav-link {
         position: relative;
@@ -15,7 +21,7 @@
         bottom: -2px;
         width: 0%;
         height: 2px;
-        background: #a277ff;
+        background: var(--color-accent);
         transition: width 0.3s ease-in-out;
     }
 
@@ -24,7 +30,17 @@
     }
 
     .nav-link:hover {
-        color: #a277ff;
+        color: var(--color-accent);
+    }
+
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4,
+    .prose h5 {
+        font-family: "ocra";
+        font-weight: 400;
+        color: var(--color-text-grey);
     }
 }
 
