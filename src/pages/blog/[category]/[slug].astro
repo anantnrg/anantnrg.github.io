@@ -23,10 +23,8 @@ const { Content } = await render(Astro.props.post); // Properly render Markdown
 ---
 
 <Layout>
-    <div class="max-w-3xl mx-auto p-6 leading-loose">
-        <h1>{Astro.props.post.data.title}</h1>
-        <p>{Astro.props.post.data.description}</p>
-        <article>
+    <div class="max-w-4xl mx-auto p-6 leading-loose">
+        <article class="prose prose-lg dark:prose-invert w-full">
             <Content />
         </article>
     </div>
