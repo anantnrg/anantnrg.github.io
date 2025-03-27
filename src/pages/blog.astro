@@ -16,43 +16,54 @@ const categories = Array.from(
 ---
 
 <Layout>
-    <h1
-        class="text-[#a277ff] font-[ocra] flex items-center justify-center text-4xl"
-    >
-        Blog Posts
-    </h1>
+    <div class="flex flex-col max-w-5xl mx-auto">
+        <h1
+            class="text-[#a277ff] font-[ocra] flex items-center justify-center text-4xl"
+        >
+            Blog Posts
+        </h1>
 
-    <h2 class="font-ocra text-3xl text-accent ml-4 my-6">Posts</h2>
-    <ul>
-        {
-            standalonePosts.map((post, index) => (
-                <a href={`/blog/${post.slug}`} class="block">
-                    <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer">
-                        <span class="mr-2">{index + 1}.</span>
-                        {post.data.title}
-                    </li>
-                </a>
-            ))
-        }
-    </ul>
+        <h2 class="font-ocra text-3xl text-accent ml-4 my-6">Posts</h2>
+        <ul>
+            {
+                standalonePosts.map((post, index) => (
+                    <a href={`/blog/${post.slug}`} class="block">
+                        <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer flex justify-between">
+                            <span class="mr-2 truncate">
+                                {index + 1}. {post.data.title}
+                            </span>
 
-    <h2 class="font-ocra text-3xl text-accent ml-4 my-6">Series</h2>
-    <div class="w-full h-auto flex items-center flex-wrap gap-4 px-6">
-        {
-            categories.map((cat, index) => (
-                <a href={`/blog/${cat}`} class="block">
-                    <div class="w-64 h-64 px-4 py-3 border-1 border-text-grey/40 rounded-lg font-space text-lg font-medium hover:text-accent hover:border-accent hover:drop-shadow-lg transition-all cursor-pointer flex flex-col text-center items-center justify-center gap-4 backdrop-blur-xs">
-                        <img
-                            src={
-                                categoryData[cat]?.image ||
-                                "/default-category.jpg"
-                            }
-                            class="max-w-56 rounded-md"
-                        />
-                        {categoryData[cat]?.name || cat}
-                    </div>
-                </a>
-            ))
-        }
+                            <span>
+                                {post.data.date.toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "numeric",
+                                    day: "numeric",
+                                })}
+                            </span>
+                        </li>
+                    </a>
+                ))
+            }
+        </ul>
+
+        <h2 class="font-ocra text-3xl text-accent ml-4 my-6">Series</h2>
+        <div class="w-full h-auto flex items-center flex-wrap gap-4 px-6">
+            {
+                categories.map((cat, index) => (
+                    <a href={`/blog/${cat}`} class="block">
+                        <div class="w-64 h-64 px-3 py-3 border-1 border-text-grey/40 rounded-lg font-space text-lg font-medium hover:text-accent hover:border-accent hover:drop-shadow-lg transition-all cursor-pointer flex flex-col text-center items-center justify-center gap-3 backdrop-blur-xs">
+                            <img
+                                src={
+                                    categoryData[cat]?.image ||
+                                    "/default-category.jpg"
+                                }
+                                class="max-w-56 rounded-md"
+                            />
+                            {categoryData[cat]?.name || cat}
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
     </div>
 </Layout>
