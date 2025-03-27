@@ -4,8 +4,9 @@
 
 @theme {
     --color-accent: #a277ff;
-    --color-dark-bg: #11111b;
-    --color-text-grey: #cdd6f4;
+    --color-base: #11111b;
+    --color-mantle: #161622;
+    --color-grey: #cdd6f4;
     --font-space: "Space Grotesk", sans-serif;
     --font-ocra: "ocra", sans-serif;
     --drop-shadow-lg: 0 4px 4px rgb(162 119 255 / 0.6);
@@ -37,8 +38,18 @@
         color: var(--color-accent);
     }
 
-    .prose {
+    .prose,
+    .prose code {
         color: var(--color-text-grey);
+    }
+
+    .prose strong,
+    .prose em {
+        @apply text-accent;
+    }
+
+    .prose code {
+        @apply border border-grey/40 w-auto py-1 px-2 rounded-sm bg-mantle;
     }
 
     .prose h1,
@@ -46,9 +57,7 @@
     .prose h3,
     .prose h4,
     .prose h5 {
-        font-family: "eurostile_nr";
-        font-weight: 400;
-        color: var(--color-text-grey);
+        @apply text-accent font-space;
     }
 }
 

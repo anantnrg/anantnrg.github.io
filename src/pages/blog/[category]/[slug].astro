@@ -26,9 +26,7 @@ const stats = readingTime(Astro.props.post.body);
         <h1 class="text-5xl text-accent font-[ocra] text-center">
             {Astro.props.post.data.title}
         </h1>
-        <p
-            class="font-space text-xl text-text-grey mt-2 text-center font-semibold"
-        >
+        <p class="font-space text-xl text-grey mt-2 text-center font-semibold">
             {Astro.props.post.data.author} •
             {
                 Astro.props.post.data.date.toLocaleDateString("en-US", {
