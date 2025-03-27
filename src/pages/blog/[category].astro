@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { categoryData } from "../categories.ts";
-import Markdown from "@astropub/md";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -29,7 +28,10 @@ const { category, posts } = Astro.props;
     >
         {categoryData[category]?.name || category}
     </h1>
-    <p><Markdown of={categoryData[category]?.desc} /></p>
+    <div
+        set:html={categoryData[category]?.desc || ""}
+        class="max-w-4xl font-space mx-auto prose prose-lg dark:prose-invert my-4"
+    />
     {
         posts.map((post, index) => (
             <a href={`/blog/${category}/${post.slug}`} class="block">
