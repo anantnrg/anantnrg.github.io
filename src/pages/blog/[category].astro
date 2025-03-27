@@ -33,22 +33,17 @@ const { category, posts } = Astro.props;
         class="max-w-3xl font-space mx-auto prose prose-lg dark:prose-invert my-4 text-justify px-4"
     />
     <div
-        class="w-full h-auto flex items-center flex-wrap gap-4 px-6 max-w-3xl mx-auto"
+        class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 px-6 max-w-3xl mx-auto"
     >
         {
-            posts.map((post, _) => (
+            posts.map((post) => (
                 <a href={`/blog/${category}/${post.slug}`} class="block">
-                    <div class="w-60 h-auto p-3 border-1 border-grey/40 rounded-lg font-space text-lg font-medium hover:text-accent hover:border-accent hover:drop-shadow-lg transition-all cursor-pointer flex flex-col text-center items-center justify-center  backdrop-blur-xs ">
-                        <img
-                            src={post.data.img}
-                            class="max-w-56 rounded-md mb-3"
+                    <div class="p-4 border border-grey/40 rounded-lg hover:border-accent hover:text-accent hover:drop-shadow-lg transition-all cursor-pointer">
+                        <h3 class="text-lg font-bold">{post.data.title}</h3>
+                        <div
+                            class="text-sm text-text-grey mt-2 line-clamp-3"
+                            set:html={post.data.desc}
                         />
-                        <h3 class="text-xl font-bold line-clamp-2">
-                            {post.data.title}
-                        </h3>
-                        <p class="text-base font-normal line-clamp-4">
-                            {post.data.desc}
-                        </p>
                     </div>
                 </a>
             ))
