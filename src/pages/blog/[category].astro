@@ -32,7 +32,7 @@ const { category, posts } = Astro.props;
         {
             posts.map((post, index) => (
                 <a href={`/blog/${category}/${post.slug}`} class="block">
-                    <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer">
+                    <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-md mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer">
                         <span class="mr-2">{index + 1}.</span>
                         {post.data.title}
                     </li>

@@ -8,6 +8,7 @@
     --color-text-grey: #cdd6f4;
     --font-space: "Space Grotesk", sans-serif;
     --font-ocra: "ocra", sans-serif;
+    --drop-shadow-lg: 0 4px 4px rgb(162 119 255 / 0.6);
 }
 
 @layer utilities {

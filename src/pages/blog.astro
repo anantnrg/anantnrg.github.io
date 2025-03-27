@@ -37,16 +37,22 @@ const categories = Array.from(
     </ul>
 
     <h2 class="font-ocra text-3xl text-accent ml-4 my-6">Series</h2>
-    <ul>
+    <div class="w-full h-auto flex items-center flex-wrap gap-4 px-6">
         {
             categories.map((cat, index) => (
                 <a href={`/blog/${cat}`} class="block">
-                    <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer">
-                        <span class="mr-2">{index + 1}.</span>
+                    <div class="w-64 h-64 px-4 py-3 border-1 border-text-grey/40 rounded-lg font-space text-lg font-medium hover:text-accent hover:border-accent hover:drop-shadow-lg transition-all cursor-pointer flex flex-col text-center items-center justify-center gap-4 backdrop-blur-xs">
+                        <img
+                            src={
+                                categoryData[cat]?.image ||
+                                "/default-category.jpg"
+                            }
+                            class="max-w-56 rounded-md"
+                        />
                         {categoryData[cat]?.name || cat}
-                    </li>
+                    </div>
                 </a>
             ))
         }
-    </ul>
+    </div>
 </Layout>
