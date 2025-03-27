@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { categoryData } from "../categories.ts";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -19,16 +20,13 @@ export async function getStaticPaths() {
 }
 
 const { category, posts } = Astro.props;
-const categoryNames = {
-    "embedded-rust-stm32": "Embedded Rust on an STM32",
-};
 ---
 
 <Layout>
     <h1
         class="text-[#a277ff] font-[ocra] flex items-center justify-center text-4xl"
     >
-        {categoryNames[category] || category}
+        {categoryData[category]?.name || category}
     </h1>
     <ul class="mt-4">
         {

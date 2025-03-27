@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { categoryData } from "./categories.ts";
 
 const posts = (await getCollection("blog")).sort(
     (a, b) => new Date(b.data.date) - new Date(a.data.date),
@@ -8,10 +9,6 @@ const posts = (await getCollection("blog")).sort(
 
 const standalonePosts = posts.filter((post) => !post.data.category);
 const groupedPosts = posts.filter((post) => post.data.category);
-
-const categoryNames = {
-    "embedded-rust-stm32": "Embedded Rust on an STM32",
-};
 
 const categories = Array.from(
     new Set(groupedPosts.map((p) => p.data.category)),
@@ -46,7 +43,7 @@ const categories = Array.from(
                 <a href={`/blog/${cat}`} class="block">
                     <li class="w-auto px-4 py-3 border-1 border-text-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer">
                         <span class="mr-2">{index + 1}.</span>
-                        {categoryNames[cat] || cat}
+                        {categoryData[cat]?.name || cat}
                     </li>
                 </a>
             ))
