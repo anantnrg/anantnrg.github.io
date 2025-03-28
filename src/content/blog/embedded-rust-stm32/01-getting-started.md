@@ -7,81 +7,12 @@ slug: "01-getting-started"
 author: "Anant Narayan"
 ---
 
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
-Rust on embedded systems is cool!!
+In this tutorial, we'll see what embedded programming means, why we use `no-std` and about
+**Hardware Abstraction Layers (HALs)**
+
+## Introduction
+
+Intro
+
+## Using `no-std`
+### Why `no-std`

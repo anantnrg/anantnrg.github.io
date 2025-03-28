@@ -1,0 +1,31 @@
+---
+import { getHeadings } from "astro:content";
+
+const { headings } = Astro.props;
+
+function buildTree(headings) {
+    const tree = [];
+    let current = { level: 0, children: tree };
+
+    headings.forEach((heading) => {
+        while (current.level >= heading.depth) {
+            current = current.parent;
+        }
+        const node = { ...heading, children: [], parent: current };
+        current.children.push(node);
+        current = node;
+    });
+
+    return tree;
+}
+
+const tocTree = buildTree(headings);
+---
+
+<div
+    class="hidden xl:flex fixed left-6 top-28 w-56 h-auto bg-mantle rounded-md border border-grey/40 shadow-md flex-col gap-y-3"
+>
+    <span class="font-space text-lg w-full text-center border-b border-grey/40"
+        >Table of contents</span
+    >
+</div>
