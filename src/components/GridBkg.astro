@@ -21,7 +21,7 @@
             moveX += (targetX - moveX) * 0.1;
             moveY += (targetY - moveY) * 0.1;
 
-            const time = Date.now() * 0.00016;
+            const time = Date.now() * 0.00004;
             const driftX = Math.sin(time) * 120;
             const driftY = Math.cos(time) * 120;
 
@@ -45,10 +45,10 @@
         height: 100vh;
         pointer-events: none;
         background-image:
-            linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(rgba(162, 119, 255, 0.12) 1px, transparent 1px),
             linear-gradient(
                 90deg,
-                rgba(255, 255, 255, 0.05) 1px,
+                rgba(162, 119, 255, 0.12) 1px,
                 transparent 1px
             );
         background-size: 48px 48px;
