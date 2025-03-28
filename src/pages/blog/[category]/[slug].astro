@@ -23,7 +23,9 @@ const stats = readingTime(Astro.props.post.body);
 
 <Layout>
     <div class="max-w-4xl mx-auto p-6 leading-loose">
-        <h1 class="text-5xl text-accent font-[ocra] text-center">
+        <h1
+            class="text-3xl md:text-4xl text-accent font-[ocra] text-center leading-tight break-words"
+        >
             {Astro.props.post.data.title}
         </h1>
         <p class="font-space text-xl text-grey mt-2 text-center font-semibold">
@@ -38,7 +40,7 @@ const stats = readingTime(Astro.props.post.body);
             } • {stats.words} words • {stats.text}
         </p>
         <article
-            class="prose prose-lg dark:prose-invert max-w-4xl font-space mt-4"
+            class="prose md:prose-lg dark:prose-invert max-w-3xl font-space mt-4 mx-auto"
         >
             <Content />
         </article>
