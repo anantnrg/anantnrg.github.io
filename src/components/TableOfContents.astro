@@ -36,7 +36,7 @@ const tocTree = buildTree(headings);
 
 <div x-data="{ open: true, mobileOpen: false }">
     <div
-        class="hidden xl:flex fixed left-6 top-28 w-72 h-auto bg-mantle rounded-md border border-accent/40 shadow-md flex-col font-space py-2 gap-y-2 transition-all"
+        class="hidden min-xl:flex fixed left-6 top-28 h-auto bg-mantle rounded-md border border-accent/40 shadow-md flex-col font-space py-2 gap-y-2 transition-all w-[clamp(180px,18vw,420px)] overflow-hidden"
         x-show="open"
     >
         <span
@@ -76,18 +76,31 @@ const tocTree = buildTree(headings);
     </div>
 
     <button
-        class="hidden xl:block fixed left-6 top-28 w-8 h-8 bg-mantle rounded-md border border-accent/40 shadow-md text-grey text-sm hover:text-accent transition"
+        class="hidden xl:block fixed left-6 top-28 w-[clamp(180px,18vw,420px)] h-[3rem] bg-mantle rounded-md border border-accent/40 shadow-md text-accent text-lg hover:text-accent transition cursor-pointer font-bold font-space"
         x-show="!open"
         @click="open = true"
     >
-        📖
+        Table of Contents
     </button>
 
     <button
         class="xl:hidden fixed bottom-6 left-6 w-12 h-12 bg-mantle rounded-full border border-accent/40 shadow-md flex items-center justify-center text-grey text-2xl hover:text-accent transition"
         @click="mobileOpen = true"
     >
-        📜
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            ><path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 12H3m13 6H3M16 6H3m18 6h.01M21 18h.01M21 6h.01"
+            ></path></svg
+        >
     </button>
 
     <div
@@ -99,7 +112,18 @@ const tocTree = buildTree(headings);
             class="absolute top-2 right-2 text-grey hover:text-accent"
             @click="mobileOpen = false"
         >
-            ✖
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12L5.47 6.53a.75.75 0 0 1 0-1.06"
+                    clip-rule="evenodd"></path></svg
+            >
         </button>
         <ul class="list-none max-w-full whitespace-nowrap truncate">
             {

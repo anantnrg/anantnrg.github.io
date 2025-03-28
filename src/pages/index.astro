@@ -83,28 +83,20 @@ import Layout from "../layouts/Layout.astro";
 <style>
     .name-container {
         font-family: ocra, monospace;
-        font-size: clamp(
-            3rem,
-            6vw,
-            6rem
-        ); /* Increased by 1rem (small) & 2rem (large) */
+        font-size: clamp(3rem, 6vw, 6rem);
         color: var(--color-accent);
     }
 
     .role-container {
         font-family: ocra, monospace;
-        font-size: clamp(
-            1.5rem,
-            3.5vw,
-            2rem
-        ); /* Increased by 0.5rem (small) & 0.5rem (large) */
+        font-size: clamp(1.5rem, 3.5vw, 2rem);
         color: var(--color-accent);
     }
 
     .cursor {
         display: inline-block;
         width: 4px;
-        height: 1em; /* Scales with text size */
+        height: 1em;
         background-color: var(--color-accent);
         margin-left: 10px;
         animation: blink 0.8s infinite;
