@@ -9,7 +9,7 @@
     --color-grey: #cdd6f4;
     --font-space: "Space Grotesk", sans-serif;
     --font-ocra: "ocra", sans-serif;
-    --drop-shadow-lg: 0 4px 4px rgb(162 119 255 / 0.6);
+    --drop-shadow-lg: 0 8px 8px rgb(162 119 255 / 0.4);
 }
 
 @layer utilities {

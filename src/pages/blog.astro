@@ -28,7 +28,7 @@ const categories = Array.from(
             {
                 standalonePosts.map((post, index) => (
                     <a href={`/blog/${post.slug}`} class="block">
-                        <li class="w-auto px-4 py-3 border-1 border-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer flex justify-between">
+                        <li class="w-auto px-4 py-3 border-1 border-grey/40 rounded-lg mx-4 font-space text-lg font-medium hover:text-accent transition-colors cursor-pointer flex justify-between hover:border-accent hover:drop-shadow-lg">
                             <span class="mr-2 truncate">
                                 {index + 1}. {post.data.title}
                             </span>
@@ -51,7 +51,10 @@ const categories = Array.from(
             {
                 categories.map((cat, index) => (
                     <a href={`/blog/${cat}`} class="block">
-                        <div class="w-64 h-64 px-3 py-3 border-1 border-grey/40 rounded-lg font-space text-lg font-medium hover:text-accent hover:border-accent hover:drop-shadow-lg transition-all cursor-pointer flex flex-col text-center items-center justify-center gap-3 backdrop-blur-xs">
+                        <div
+                            class="w-64 h-64 px-3 py-3 border-1 border-grey/40 rounded-lg font-space text-lg font-medium hover:text-accent hover:border-accent hover:drop-shadow-lg
+                       hover:scale-105 transition-all cursor-pointer flex flex-col text-center items-center justify-center gap-3 backdrop-blur-xs duration-300"
+                        >
                             <img
                                 src={
                                     categoryData[cat]?.image ||

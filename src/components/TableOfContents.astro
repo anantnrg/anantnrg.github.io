@@ -36,19 +36,19 @@ const tocTree = buildTree(headings);
 
 <div x-data="{ open: true, mobileOpen: false }">
     <div
-        class="hidden min-xl:flex fixed left-6 top-28 h-auto bg-mantle rounded-md border border-accent/40 shadow-md flex-col font-space py-2 gap-y-2 transition-all w-[clamp(180px,18vw,420px)] overflow-hidden truncate"
+        class="hidden min-xl:flex fixed left-6 top-28 h-auto rounded-md border-accent/40 shadow-md flex-col font-space px-3 py-2 gap-y-2 transition-all w-auto overflow-hidden truncate"
         x-show="open"
     >
         <span
-            class="text-accent hover:text-accent text-lg font-space text-center font-bold cursor-pointer select-none"
+            class="text-accent hover:text-accent text-lg font-space text-center font-bold cursor-pointer select-none w-full flex items-center justify-center"
             @click="open = false"
         >
             Table of Contents
         </span>
-        <ul class="pl-2 list-none">
+        <ul class="list-none pl-2">
             {
                 tocTree.map((item) => (
-                    <li class="pl-2 text-lg font-bold mt-2 first:mt-0">
+                    <li class=" text-lg font-bold mt-2 first:mt-0">
                         <a
                             href={`#${item.slug}`}
                             class="text-grey hover:underline hover:text-accent transition"
@@ -61,7 +61,7 @@ const tocTree = buildTree(headings);
                                     <li>
                                         <a
                                             href={`#${subItem.slug}`}
-                                            class="text-grey hover:underline"
+                                            class="text-grey hover:underline hover:text-accent transition"
                                         >
                                             {subItem.number}. {subItem.text}
                                         </a>
@@ -76,7 +76,7 @@ const tocTree = buildTree(headings);
     </div>
 
     <button
-        class="hidden xl:block fixed left-6 top-28 w-[clamp(180px,18vw,420px)] h-[3rem] bg-mantle rounded-md border border-accent/40 shadow-md text-accent text-lg hover:text-accent transition cursor-pointer font-bold font-space"
+        class="hidden xl:block fixed left-6 top-28 w-auto h-[3rem] bg-mantle rounded-md border border-accent/40 shadow-md text-accent text-lg px-3 hover:text-accent transition cursor-pointer font-bold font-space"
         x-show="!open"
         @click="open = true"
     >

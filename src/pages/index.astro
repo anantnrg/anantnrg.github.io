@@ -4,15 +4,6 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
     <div class="w-full h-full flex flex-col items-center justify-center p-4">
-        <h1 class="name-container text-center flex items-center">
-            <span id="typed-name"></span><span class="cursor" id="cursor"
-            ></span>
-        </h1>
-        <h2 class="role-container text-center flex items-center -mt-2">
-            <span id="typed-role"></span><span class="cursor" id="role-cursor"
-            ></span>
-        </h2>
-
         <script>
             const nameText = "Anant Narayan";
             const roles = [
@@ -77,6 +68,35 @@ import Layout from "../layouts/Layout.astro";
 
             window.addEventListener("load", typeName);
         </script>
+        <h1 class="name-container text-center flex items-center">
+            <span id="typed-name"></span><span class="cursor" id="cursor"
+            ></span>
+        </h1>
+        <h2 class="role-container text-center flex items-center -mt-2">
+            <span id="typed-role"></span><span class="cursor" id="role-cursor"
+            ></span>
+        </h2>
+
+        <div class="flex justify-center gap-6 mt-8">
+            <a
+                href="/blog"
+                class="px-6 py-2 text-lg font-semibold font-space text-grey bg-mantle rounded-lg transition-all duration-300 border-2 border-grey/20 hover:scale-105 hover:drop-shadow-lg hover:border-accent hover:text-accent"
+            >
+                Read my blogs!
+            </a>
+            <a
+                href="/projects"
+                class="px-6 py-2 text-lg font-semibold font-space text-grey bg-mantle rounded-lg transition-all duration-300 border-2 border-grey/20 hover:scale-105 hover:drop-shadow-lg hover:border-accent hover:text-accent"
+            >
+                Checkout my projects
+            </a>
+            <a
+                href="/about"
+                class="px-6 py-2 text-lg font-semibold font-space text-grey bg-mantle rounded-lg transition-all duration-300 border-2 border-grey/20 hover:scale-105 hover:drop-shadow-lg hover:border-accent hover:text-accent"
+            >
+                More about me
+            </a>
+        </div>
     </div>
 </Layout>
 
