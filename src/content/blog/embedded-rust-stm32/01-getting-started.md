@@ -15,4 +15,5 @@ In this tutorial, we'll see what embedded programming means, why we use `no-std`
 Intro
 
 ## Using `no-std`
-### Why `no-std`
+### Why `no-std`?
+### Using `no-std`
