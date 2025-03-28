@@ -4,28 +4,65 @@ import { getHeadings } from "astro:content";
 const { headings } = Astro.props;
 
 function buildTree(headings) {
-    const tree = [];
-    let current = { level: 0, children: tree };
+    const root = [];
+    const stack = [{ level: 0, children: root }];
 
-    headings.forEach((heading) => {
-        while (current.level >= heading.depth) {
-            current = current.parent;
+    for (const heading of headings) {
+        while (
+            stack.length > 1 &&
+            stack[stack.length - 1].level >= heading.depth
+        ) {
+            stack.pop();
         }
-        const node = { ...heading, children: [], parent: current };
-        current.children.push(node);
-        current = node;
-    });
+        const node = { ...heading, children: [] };
+        stack[stack.length - 1].children.push(node);
+        stack.push({
+            ...node,
+            parent: stack[stack.length - 1],
+            level: heading.depth,
+        });
+    }
 
-    return tree;
+    return root;
 }
 
 const tocTree = buildTree(headings);
 ---
 
 <div
-    class="hidden xl:flex fixed left-6 top-28 w-56 h-auto bg-mantle rounded-md border border-grey/40 shadow-md flex-col gap-y-3"
+    class="hidden xl:flex fixed left-6 top-28 w-56 h-auto bg-mantle rounded-md border border-accent/40 shadow-md flex-col gap-y-3"
 >
-    <span class="font-space text-lg w-full text-center border-b border-grey/40"
+    <span
+        class="font-space text-lg w-full text-center border-b border-accent/40 text-accent font-normal"
         >Table of contents</span
     >
+    <ul class="pl-2 list-none">
+        {
+            tocTree.map((item) => (
+                <li class="pl-2">
+                    <a
+                        href={`#${item.slug}`}
+                        class="text-accent hover:underline"
+                    >
+                        {item.text}
+                    </a>
+                    {item.children.length > 0 && (
+                        <ul class="pl-4 border-l border-accent/30 mt-1 space-y-1">
+                            {item.children.map((subItem) => (
+                                <li class="pl-2">
+                                    <a
+                                        href={`#${subItem.slug}`}
+                                        class="text-grey hover:underline"
+                                    >
+                                        {subItem.text}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </li>
+            ))
+        }
+    </ul>
 </div>
+>
