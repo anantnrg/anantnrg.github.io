@@ -8,7 +8,6 @@ const blog = defineCollection({
     date: z.string().transform((str) => new Date(str)),
     category: z.string(),
     author: z.string(),
-    img: z.string(),
   }),
 });
 
