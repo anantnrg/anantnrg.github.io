@@ -5,22 +5,27 @@ const { headings } = Astro.props;
 
 function buildTree(headings) {
     const root = [];
-    const stack = [{ level: 0, children: root }];
+    const stack = [{ level: 0, children: root, number: "" }];
 
-    for (const heading of headings) {
+    for (let i = 0; i < headings.length; i++) {
+        const heading = headings[i];
+
         while (
             stack.length > 1 &&
             stack[stack.length - 1].level >= heading.depth
         ) {
             stack.pop();
         }
-        const node = { ...heading, children: [] };
-        stack[stack.length - 1].children.push(node);
-        stack.push({
-            ...node,
-            parent: stack[stack.length - 1],
-            level: heading.depth,
-        });
+
+        const parent = stack[stack.length - 1];
+        const number = parent.children.length + 1;
+        const fullNumber = parent.number
+            ? `${parent.number}.${number}`
+            : `${number}`;
+
+        const node = { ...heading, children: [], number: fullNumber };
+        parent.children.push(node);
+        stack.push({ ...node, level: heading.depth });
     }
 
     return root;
@@ -30,31 +35,27 @@ const tocTree = buildTree(headings);
 ---
 
 <div
-    class="hidden xl:flex fixed left-6 top-28 w-56 h-auto bg-mantle rounded-md border border-accent/40 shadow-md flex-col gap-y-3"
+    class="hidden xl:flex fixed left-6 top-28 w-56 h-auto bg-mantle rounded-md border border-accent/40 shadow-md flex-col gap-y-3 font-space px-3 py-3"
 >
-    <span
-        class="font-space text-lg w-full text-center border-b border-accent/40 text-accent font-normal"
-        >Table of contents</span
-    >
     <ul class="pl-2 list-none">
         {
             tocTree.map((item) => (
-                <li class="pl-2">
+                <li class="pl-2 text-lg font-bold">
                     <a
                         href={`#${item.slug}`}
                         class="text-accent hover:underline"
                     >
-                        {item.text}
+                        {item.number}. {item.text}
                     </a>
                     {item.children.length > 0 && (
-                        <ul class="pl-4 border-l border-accent/30 mt-1 space-y-1">
+                        <ul class="pl-8 border-l border-accent/30 mt-1 space-y-1 text-base font-normal">
                             {item.children.map((subItem) => (
-                                <li class="pl-2">
+                                <li class="">
                                     <a
                                         href={`#${subItem.slug}`}
                                         class="text-grey hover:underline"
                                     >
-                                        {subItem.text}
+                                        {subItem.number}. {subItem.text}
                                     </a>
                                 </li>
                             ))}
