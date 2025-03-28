@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <div class="w-full h-full flex flex-col items-center justify-center">
+    <div class="w-full h-full flex flex-col items-center justify-center p-4">
         <h1 class="name-container text-center flex items-center">
             <span id="typed-name"></span><span class="cursor" id="cursor"
             ></span>
@@ -83,24 +83,31 @@ import Layout from "../layouts/Layout.astro";
 <style>
     .name-container {
         font-family: ocra, monospace;
-        font-size: 4rem;
+        font-size: clamp(
+            3rem,
+            6vw,
+            6rem
+        ); /* Increased by 1rem (small) & 2rem (large) */
         color: var(--color-accent);
     }
 
     .role-container {
         font-family: ocra, monospace;
-        font-size: 1.5em;
+        font-size: clamp(
+            1.5rem,
+            3.5vw,
+            2rem
+        ); /* Increased by 0.5rem (small) & 0.5rem (large) */
         color: var(--color-accent);
     }
 
     .cursor {
         display: inline-block;
         width: 4px;
-        height: 4rem;
+        height: 1em; /* Scales with text size */
         background-color: var(--color-accent);
         margin-left: 10px;
         animation: blink 0.8s infinite;
-
         transition: opacity 0.8s linear;
     }
 
@@ -109,7 +116,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     #role-cursor {
-        height: 1.5em;
+        height: 1em;
         width: 2px;
         margin-left: 5px;
         display: none;
