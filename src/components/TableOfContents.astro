@@ -36,7 +36,7 @@ const tocTree = buildTree(headings);
 
 <div x-data="{ open: true, mobileOpen: false }">
     <div
-        class="hidden min-xl:flex fixed left-6 top-28 h-auto bg-mantle rounded-md border border-accent/40 shadow-md flex-col font-space py-2 gap-y-2 transition-all w-[clamp(180px,18vw,420px)] overflow-hidden"
+        class="hidden min-xl:flex fixed left-6 top-28 h-auto bg-mantle rounded-md border border-accent/40 shadow-md flex-col font-space py-2 gap-y-2 transition-all w-[clamp(180px,18vw,420px)] overflow-hidden truncate"
         x-show="open"
     >
         <span
