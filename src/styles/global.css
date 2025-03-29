@@ -74,6 +74,11 @@
     .prose ul {
         padding-left: 3rem;
     }
+
+    .prose code::before,
+    .prose code::after {
+        content: none !important;
+    }
 }
 
 @font-face {

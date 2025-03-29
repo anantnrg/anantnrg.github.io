@@ -7,7 +7,7 @@ slug: "01-intro"
 author: "Anant Narayan"
 ---
 
-In this tutorial, we'll see why **Rust** is a good choice for embedded programming, why `no_std` exists, and how we talk to the hardware without an OS using **Hardware Abstraction Layers (HALs)** and **Peripheral Access Crates (PACs).**
+In this tutorial, we'll see why **Rust** is a good choice for embedded programming, why <code>no_std</code> exists, and how we talk to the hardware without an OS using **Hardware Abstraction Layers (HALs)** and **Peripheral Access Crates (PACs).**
 
 ## Why Rust?
 
@@ -19,3 +19,17 @@ In fact, Rust's strengths in user-level apps also make it a killer choice for em
   1. **Memory-safety**: On a PC, memory leaks are annoying. On a microcontroller tho? They're **fatal**! Rust’s **borrow checker prevents** leaks without **garbage collection**, keeping performance tight for mission-critical systems.
   2. **Zero-cost abstractions**: Writing embedded code doesn't always have to be manual bit-fiddling. Rust’s high-level features (**iterators, smart pointers**, etc.) add **zero overhead**, giving **Python-like readability** with **C-like performance**.
   3. **No data-races**: Concurrency in embedded systems is a minefield. In C/C++, forget a lock? **Boom!** — your system crashes. Rust enforces safety **at compile time**, so you **can’t** mess it up.
+
+Alright, now that you see Rust ain't just hype, its time to strip away the training wheels and go **full bare-metal**—say hello to `no_std` !
+
+## What is `no_std` and why do we need it?
+
+Rust, by default, provides a `std` library, which contains a TON of useful stuff. Some very common ones are:
+  1. **Heap Allocation** with stuff like `Vec`, `Box` and `String`
+  2. **File I/O** with `std::fs`
+  3. **Networking** using `std::net`
+  4. **Threads & Concurrency** with `std::thread` and `std::sync`
+  5. **Panic Handling** using `std::panic`
+  6. **Printing** (heh!) with `println!`
+
+**TL;DR:** ``std`` is a pretty feature-packed toolbox in Rust, but it assumes we got an OS, a heap, and a bunch of system resources to play with.
