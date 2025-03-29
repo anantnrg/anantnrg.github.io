@@ -36,7 +36,7 @@ const tocTree = buildTree(headings);
 
 <div x-data="{ open: true, mobileOpen: false }">
     <div
-        class="hidden min-xl:flex fixed left-6 top-28 h-auto rounded-md border-accent/40 shadow-md flex-col font-space px-3 py-2 gap-y-2 transition-all w-auto max-w-[20vw]"
+        class="h-auto rounded-md border-accent/40 shadow-md flex-col font-space px-3 py-2 gap-y-2 transition-all w-full overflow-hidden"
         x-show="open"
     >
         <span
@@ -45,13 +45,13 @@ const tocTree = buildTree(headings);
         >
             Table of Contents
         </span>
-        <ul class="list-none pl-2 truncate">
+        <ul class="list-none pl-2">
             {
                 tocTree.map((item) => (
                     <li class=" text-lg font-bold mt-2 first:mt-0">
                         <a
                             href={`#${item.slug}`}
-                            class="text-grey hover:underline hover:text-accent transition"
+                            class="text-grey hover:underline hover:text-accent transition truncate"
                         >
                             {item.number}. {item.text}
                         </a>
@@ -61,7 +61,7 @@ const tocTree = buildTree(headings);
                                     <li>
                                         <a
                                             href={`#${subItem.slug}`}
-                                            class="text-grey hover:underline hover:text-accent transition"
+                                            class="text-grey hover:underline hover:text-accent transition truncate"
                                         >
                                             {subItem.number}. {subItem.text}
                                         </a>
@@ -131,7 +131,7 @@ const tocTree = buildTree(headings);
                     <li class="text-lg font-bold mt-2 first:mt-0">
                         <a
                             href={`#${item.slug}`}
-                            class="text-grey hover:underline hover:text-accent transition"
+                            class="text-grey hover:underline hover:text-accent transition truncate"
                             @click="mobileOpen = false"
                         >
                             {item.number}. {item.text}
@@ -142,7 +142,7 @@ const tocTree = buildTree(headings);
                                     <li>
                                         <a
                                             href={`#${subItem.slug}`}
-                                            class="text-grey hover:underline"
+                                            class="text-grey hover:underline truncate"
                                             @click="mobileOpen = false"
                                         >
                                             {subItem.number}. {subItem.text}

@@ -19,33 +19,43 @@ export async function getStaticPaths() {
 }
 
 const { Content, headings } = await render(Astro.props.post);
-
 const stats = readingTime(Astro.props.post.body);
 ---
 
 <Layout>
-    <div class="relative max-w-4xl mx-auto p-6 leading-loose">
-        <TableOfContents headings={headings} />
-        <h1
-            class="text-3xl md:text-4xl text-accent font-[ocra] text-center leading-tight break-words"
+    <div class="flex justify-center w-full px-6 overflow-x-hidden">
+        <div
+            class="hidden xl:flex flex-[1] max-w-xs justify-start pr-6 overflow-hidden"
         >
-            {Astro.props.post.data.title}
-        </h1>
-        <p class="font-space text-xl text-grey mt-2 text-center font-semibold">
-            {Astro.props.post.data.author} •
-            {
-                Astro.props.post.data.date.toLocaleDateString("en-US", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                })
-            } • {stats.words} words • {stats.text}
-        </p>
-        <article
-            class="prose md:prose-lg dark:prose-invert max-w-3xl font-space mt-4 mx-auto"
-        >
-            <Content />
-        </article>
+            <TableOfContents headings={headings} />
+        </div>
+
+        <div class="w-full max-w-3xl">
+            <h1
+                class="text-3xl md:text-4xl text-accent font-[ocra] text-center leading-tight break-words"
+            >
+                {Astro.props.post.data.title}
+            </h1>
+            <p
+                class="font-space text-xl text-grey mt-2 text-center font-semibold"
+            >
+                {Astro.props.post.data.author} •
+                {
+                    Astro.props.post.data.date.toLocaleDateString("en-US", {
+                        weekday: "long",
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })
+                } • {stats.words} words • {stats.text}
+            </p>
+            <article
+                class="prose md:prose-lg dark:prose-invert font-space mt-4 mx-auto"
+            >
+                <Content />
+            </article>
+        </div>
+
+        <div class="hidden xl:flex flex-[1]"></div>
     </div>
 </Layout>
