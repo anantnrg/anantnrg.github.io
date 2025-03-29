@@ -14,7 +14,11 @@ In this tutorial, we'll see why **Rust** is a good choice for embedded programmi
 Before we start, this series assumes you have some basic Rust experience. If not, check out my other Rust tutorial series: [link here].
 
 Now that that’s out of the way, why should we even consider Rust for embedded programming?
-In fact, Rust's strengths in user-level apps also make it a killer choice for embedded programming.
+In fact, Rust's strengths in user-level apps also make it a killer choice for embedded programming:
+
+  1. **Memory-safety**: On a PC, memory leaks are annoying. On a microcontroller tho? They're **deadly**! In mission critical scenarios like in aircraft and military equipment, memory-leaks can be catastrophic. Garbage collection can work, but it's resource intensive. Rust solves both these problems with its **borrow-checker**, providing both **memory-safety** *and* **performance**.
+  2. **Zero-cost abstractions**: Writing embedded code doesn't always have to be manually assigning and re-assigning each bit. In Rust, high-level features like **function calls, iterators, and smart-pointers** don't have *any* additional over-head. Thus, it gives us **Python-like readability** with **C-like performance**
+  3. **No data-races**: **Data-races** are one of the biggest nightmares in mission critical systems. In C/C++, you gotta remember to manually lock resources before modifying them. One mistake, and your program is **toast!** Rust enforces these rules at compile time, meaning, once compiled, you're practically guaranteed to be free of data races.
 
 For starters, Rust is **memory-safe**. Unlike a PC — where a bloated Electron app can hog memory and still have gigabytes to spare — microcontrollers survive on just a few dozen kilobytes of RAM. Memory leaks at this level can be catastrophic. Just imagine the software in an airplane crashing in-flight. Rust makes it easy to avoid exactly that scenario.
 

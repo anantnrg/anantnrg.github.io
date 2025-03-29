@@ -58,6 +58,21 @@
     .prose h4,
     .prose h5 {
         @apply text-accent font-space;
+        line-height: 1;
+    }
+
+    .prose ol {
+        list-style-type: decimal-leading-zero;
+    }
+
+    .prose ul > li::marker,
+    .prose ol > li::marker {
+        @apply text-accent font-semibold;
+    }
+
+    .prose ol,
+    .prose ul {
+        padding-left: 3rem;
     }
 }
 
