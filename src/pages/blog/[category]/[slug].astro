@@ -25,7 +25,7 @@ const stats = readingTime(Astro.props.post.body);
 <Layout>
     <div class="flex justify-center w-full px-6 overflow-x-hidden">
         <div
-            class="hidden xl:flex flex-[1] max-w-xs justify-start pr-6 overflow-hidden"
+            class="hidden xl:flex flex-[1] max-w-xs justify-start pr-6 bg-blue-500"
         >
             <TableOfContents headings={headings} />
         </div>
@@ -56,6 +56,6 @@ const stats = readingTime(Astro.props.post.body);
             </article>
         </div>
 
-        <div class="hidden xl:flex flex-[1]"></div>
+        <div class="hidden xl:flex flex-[1] max-w-xs"></div>
     </div>
 </Layout>
