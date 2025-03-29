@@ -24,8 +24,8 @@ Alright, now that you see Rust ain't just hype, its time to strip away the train
 
 ## What is `no_std` and why do we need it?
 
-Rust, by default, provides a `std` library, which contains a TON of useful stuff. Some very common ones are:
-  1. **Heap Allocation** with stuff like `Vec`, `Box` and `String`
+Rust, by default, provides a `std` library, which contains a TON of useful stuff. Some common features it provides include:
+  1. **Heap Allocation** with types like `Vec`, `Box` and `String`
   2. **File I/O** with `std::fs`
   3. **Networking** using `std::net`
   4. **Threads & Concurrency** with `std::thread` and `std::sync`
@@ -34,14 +34,16 @@ Rust, by default, provides a `std` library, which contains a TON of useful stuff
 
 **TL;DR:** `std` is a pretty feature-packed toolbox in Rust, but it assumes we got an OS, a heap, and a bunch of system resources to play with.
 
-But on embedded systems, we ain't got **no OS**, **no heap** and **no threads**, so the standard library is just dead weight. Instead, we use `no_std`, which is like a stripped version of the standard library with only the very essentials. Think `no_std` as skimmed milk as compared to whole milk (`std`).
+But on embedded systems, we ain't got **no OS**, **no heap** and **no threads**, so the standard library is just dead weight. Instead, we use `no_std`, which is like a stripped version of the standard library with only the very essentials. Think of `no_std` as skimmed milk as compared to whole milk (`std`).
 
 Some of the things we lose include **heap allocation** (`Vec`, `Box`, or `String`), **file I/O**, **networking**, **threading**, and `println!` (nooo! 😭)
 
 But don't lose hope yet! We still have quite some fundamental stuff with the `core` crate. `core` is Rust's **minimal** stand library, with stuff like:
   1. `Option` and `Result` for error handling
-  2. `str`, `slice`, `array`, `i<8-32>`, `u<8-32>` and `f32` for storing useful data
-  3. `fmt!` to format strings
-  4. `panic_handler` to handle panics (but we gotta explicitly define what we want the program to do when it encounters a panic, like blinking an LED)
+  2. `str`, `slice`, `array`, `i8`-`i128`, `u8`-`u128`, `f32` & `f64` for storing useful data
+  3. `format_args!`, `write!`, and `writeln!` for string formatting (but no `println!`)
+  4. `#[panic_handler]` to define what happens on panic (like blinking an LED or resetting the chip)
 
 Further, if we wanna use stuff we're familiar with like `Vec` and `String`, we can use the [`heapless` crate](https://github.com/rust-embedded/heapless) made specifically for embedded systems!
+
+Alright, now we got the bare essentials with `no_std`, `core` and optionally `heapless`, but how we do actually *talk to the hardware?* We can't just throw Rust at a microcontroller and hope for the best! This is where **Peripheral Access Crates (PACs)** and **Hardware Abstraction Layers (HALs)** come in—they help us control the microcontroller without manually flipping bits in registers like a caveman!

@@ -43,9 +43,12 @@
         color: var(--color-text-grey);
     }
 
-    .prose strong,
-    .prose em {
+    .prose strong {
         @apply text-accent;
+    }
+
+    .prose em {
+        @apply text-grey mr-1;
     }
 
     .prose code {
