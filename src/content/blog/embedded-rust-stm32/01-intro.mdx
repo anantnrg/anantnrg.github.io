@@ -32,4 +32,16 @@ Rust, by default, provides a `std` library, which contains a TON of useful stuff
   5. **Panic Handling** using `std::panic`
   6. **Printing** (heh!) with `println!`
 
-**TL;DR:** ``std`` is a pretty feature-packed toolbox in Rust, but it assumes we got an OS, a heap, and a bunch of system resources to play with.
+**TL;DR:** `std` is a pretty feature-packed toolbox in Rust, but it assumes we got an OS, a heap, and a bunch of system resources to play with.
+
+But on embedded systems, we ain't got **no OS**, **no heap** and **no threads**, so the standard library is just dead weight. Instead, we use `no_std`, which is like a stripped version of the standard library with only the very essentials. Think `no_std` as skimmed milk as compared to whole milk (`std`).
+
+Some of the things we lose include **heap allocation** (`Vec`, `Box`, or `String`), **file I/O**, **networking**, **threading**, and `println!` (nooo! 😭)
+
+But don't lose hope yet! We still have quite some fundamental stuff with the `core` crate. `core` is Rust's **minimal** stand library, with stuff like:
+  1. `Option` and `Result` for error handling
+  2. `str`, `slice`, `array`, `i<8-32>`, `u<8-32>` and `f32` for storing useful data
+  3. `fmt!` to format strings
+  4. `panic_handler` to handle panics (but we gotta explicitly define what we want the program to do when it encounters a panic, like blinking an LED)
+
+Further, if we wanna use stuff we're familiar with like `Vec` and `String`, we can use the [`heapless` crate](https://github.com/rust-embedded/heapless) made specifically for embedded systems!

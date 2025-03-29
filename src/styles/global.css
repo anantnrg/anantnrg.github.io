@@ -79,6 +79,10 @@
     .prose code::after {
         content: none !important;
     }
+
+    .prose a {
+        @apply text-grey hover:text-accent transition;
+    }
 }
 
 @font-face {
