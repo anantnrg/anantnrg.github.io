@@ -36,7 +36,7 @@ const tocTree = buildTree(headings);
 
 <div x-data="{ open: true, mobileOpen: false }">
     <div
-        class="h-auto rounded-md border-accent/40 shadow-md flex-col font-space px-3 py-2 gap-y-2 transition-all bg-red-500 block"
+        class="h-auto rounded-md border-accent/40 shadow-md flex-col font-space px-3 py-2 gap-y-2 transition-all max-w-full"
         x-show="open"
     >
         <span
@@ -48,7 +48,7 @@ const tocTree = buildTree(headings);
         <ul class="list-none pl-2">
             {
                 tocTree.map((item) => (
-                    <li class=" text-lg font-bold mt-2 first:mt-0">
+                    <li class=" text-lg font-bold mt-2 first:mt-0 truncate">
                         <a
                             href={`#${item.slug}`}
                             class="text-grey hover:underline hover:text-accent transition truncate"
@@ -56,7 +56,7 @@ const tocTree = buildTree(headings);
                             {item.number}. {item.text}
                         </a>
                         {item.children.length > 0 && (
-                            <ul class="ml-4 pl-4 border-l-2 border-accent/40 py-1 space-y-2 text-base font-normal mt-2">
+                            <ul class="ml-4 pl-4 border-l-2 border-accent/40 py-1 space-y-2 text-base font-normal mt-2  truncate">
                                 {item.children.map((subItem) => (
                                     <li>
                                         <a
