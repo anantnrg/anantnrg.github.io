@@ -14,7 +14,11 @@ export async function getStaticPaths() {
         params: { category },
         props: {
             category,
-            posts: posts.filter((post) => post.data.category === category),
+            posts: posts
+                .filter((post) => post.data.category === category)
+                .sort((a, b) =>
+                    a.id.localeCompare(b.id, undefined, { numeric: true }),
+                ),
         },
     }));
 }
@@ -36,12 +40,14 @@ const { category, posts } = Astro.props;
         class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 px-6 max-w-3xl mx-auto font-space"
     >
         {
-            posts.map((post) => (
-                <a href={`/blog/${category}/${post.slug}`} class="block">
-                    <div class="p-4 border border-grey/40 rounded-lg hover:border-accent hover:text-accent hover:drop-shadow-lg transition-all cursor-pointer">
-                        <h3 class="text-lg font-bold">{post.data.title}</h3>
+            posts.map((post, index) => (
+                <a href={`/blog/${category}/${post.slug}`} class="block h-full">
+                    <div class="p-4 border border-grey/40 rounded-lg hover:border-accent hover:text-accent hover:drop-shadow-lg transition-all cursor-pointer flex flex-col h-full">
+                        <h3 class="text-lg font-bold">
+                            {index + 1}. {post.data.title}
+                        </h3>
                         <div
-                            class="text-sm text-text-grey mt-2 line-clamp-3"
+                            class="text-sm text-text-grey mt-2 flex-1 min-h-[3.5rem] line-clamp-3"
                             set:html={post.data.desc}
                         />
                     </div>
