@@ -1,9 +1,9 @@
 ---
-title: "Getting Started with Rust"
-desc: "<p>We'll see what makes Rust so unique and powerful, and how to setup the Rust toolchain on Windows/MacOS/GNU Linux</p>"
+title: "Control Flow"
+desc: "<p>This tutorial is about control flow statements in Rust, which include <code>if/else</code> statements, <code>for</code> & <code>while</code> loops, etc...</p>"
 date: "2024-03-26"
 category: "rust-for-noobs"
-slug: "04-control-flow"
+slug: "05-control-flow"
 author: "Anant Narayan"
 ---
 

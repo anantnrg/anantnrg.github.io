@@ -1,9 +1,9 @@
 ---
-title: "Getting Started with Rust"
-desc: "<p>We'll see what makes Rust so unique and powerful, and how to setup the Rust toolchain on Windows/MacOS/GNU Linux</p>"
+title: "Functions"
+desc: "<p>This tutorial goes in depth about functions in Rust</p>"
 date: "2024-03-26"
 category: "rust-for-noobs"
-slug: "03-functions"
+slug: "04-functions"
 author: "Anant Narayan"
 ---
 
