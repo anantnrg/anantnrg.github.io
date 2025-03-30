@@ -47,3 +47,13 @@ But don't lose hope yet! We still have quite some fundamental stuff with the `co
 Further, if we wanna use stuff we're familiar with like `Vec` and `String`, we can use the [`heapless` crate](https://github.com/rust-embedded/heapless) made specifically for embedded systems!
 
 Alright, now we got the bare essentials with `no_std`, `core` and optionally `heapless`, but how we do actually *talk to the hardware?* We can't just throw Rust at a microcontroller and hope for the best! This is where **Peripheral Access Crates (PACs)** and **Hardware Abstraction Layers (HALs)** come in—they help us control the microcontroller without manually flipping bits in registers like a caveman!
+
+## PACs and HALs
+
+First let's talk about **Peripheral Access Crates**, the *low-level* stuff. PACs are **auto-generated** from the chip's **SVD file**, which is just a hardware description file, often provided by the chip's manufacturer. PACs give us **direct** access to the chip's **registers**, aka, the raw bits controlling the hardware. Using a PAC is safe thanks to Rust, but the code is still very **low-level** and **verbose**. However, since PACs are specific for each microcontroller, the code written for one microcontroller (e.g, the STM32F103) wont work for another microcontroller (e.g, the ATmega 2560).
+
+This is where **Hardware Abstraction Layers** come into play, to make our lives a lot easier. HALs sit *on top* of PACs and provide a **simpler, high-level API** to interact with hardware. Instead of manually toggling registers, HALs offer **safe, ergonomic methods**. They are also very portable, since they abstract different chips and lets us write code that works across multiple devices.
+
+These differences will become more apparent once we start actually programming microcontrollers.
+
+That's it for this tutorial!!! In the next one, we'll setup a Windows PC to program and upload code to a STM32 Bluepill board. `:wq`
