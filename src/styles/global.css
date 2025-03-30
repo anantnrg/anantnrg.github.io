@@ -86,6 +86,14 @@
     .prose a {
         @apply text-grey hover:text-accent transition;
     }
+
+    .prose pre {
+        @apply border border-grey/40 w-auto py-2 px-4 rounded-sm bg-mantle;
+    }
+
+    .prose pre code {
+        @apply bg-transparent border-0 p-0 m-0;
+    }
 }
 
 @font-face {
