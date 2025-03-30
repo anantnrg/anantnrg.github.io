@@ -53,7 +53,7 @@ const categories = Array.from(
                     <a href={`/blog/${cat}`} class="block">
                         <div
                             class="w-64 h-64 px-3 py-3 border-1 border-grey/40 rounded-lg font-space text-lg font-medium hover:text-accent hover:border-accent hover:drop-shadow-lg
-                       hover:scale-105 transition-all cursor-pointer flex flex-col text-center items-center justify-center gap-3 backdrop-blur-xs duration-300"
+                           hover:scale-105 transition-all cursor-pointer flex flex-col text-center items-center justify-center gap-3 backdrop-blur-xs duration-300"
                         >
                             <img
                                 src={
@@ -62,7 +62,9 @@ const categories = Array.from(
                                 }
                                 class="max-w-56 rounded-md"
                             />
-                            {categoryData[cat]?.name || cat}
+                            <div class="min-h-[3rem] flex items-center">
+                                {categoryData[cat]?.name || cat}
+                            </div>
                         </div>
                     </a>
                 ))
