@@ -1,15 +1,24 @@
 ---
 export interface Props {
-  src: string;
-  alt: string;
-  caption: string;
-  width?: string;
+    src: string;
+    alt: string;
+    caption: string;
+    width?: string;
 }
 
 const { src, alt, caption, width = "100%" } = Astro.props;
 ---
 
-<figure>
-  <img src={src} alt={alt} width={width} />
-  <figcaption><em>{caption}</em></figcaption>
+<figure
+    class="flex flex-col items-center justify-center gap-y-1 text-grey hover:text-accent transition-all hover:drop-shadow-lg"
+>
+    <img
+        src={src}
+        alt={alt}
+        width={width}
+        class="rounded-lg border-2 border-transparent hover:border-accent transition-all"
+    />
+    <figcaption class="font-space text-base text-grey">
+        <em>{caption}</em>
+    </figcaption>
 </figure>
