@@ -13,4 +13,10 @@ export default defineConfig({
   site: "https://anantnrg.github.io/",
   base: "/",
   integrations: [mdx()],
+  markdown: {
+    shikiConfig: {
+      theme: "catppuccin-mocha",
+      wrap: true,
+    },
+  },
 });
