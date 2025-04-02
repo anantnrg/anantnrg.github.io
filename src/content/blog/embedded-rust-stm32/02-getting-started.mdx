@@ -7,15 +7,14 @@ slug: "02-getting-started"
 author: "Anant Narayan"
 ---
 
+import Image from "../../../components/Image.astro"
+
 In the last tutorial in this series, we looked at embedded programming in Rust and `no-std`. In this tutorial, we'll see how to setup a Windows PC to program a STM32 Bluepill Board using the STLink V2 programmer.
 
 ## The Hardware
 
 We'll be using a STM32 Bluepill board, a pretty cool 32-bit microcontroller break out board. The heart of this board is the **STM32F103** or its close variants. It has around **20KB RAM** and **64KB Flash ROM**.
 
-![STM32 breakout board](/images/embedded-rust-stm32/stm32.png)
-
-<figure>
-  <img src="/images/embedded-rust-stm32/stm32.png" alt="STM32 Bluepill" width="100%"/>
-  <figcaption><em>Figure 1: The mighty STM32 Bluepill, ready for action!</em></figcaption>
-</figure>
+<Image src="/images/embedded-rust-stm32/stm32.png"
+       alt="STM32 Bluepill"
+       caption="Figure 1: The mighty STM32 Bluepill, ready for action!" />

@@ -1,0 +1,15 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+  width?: string;
+}
+
+const { src, alt, caption, width = "100%" } = Astro.props;
+---
+
+<figure>
+  <img src={src} alt={alt} width={width} />
+  <figcaption><em>{caption}</em></figcaption>
+</figure>
