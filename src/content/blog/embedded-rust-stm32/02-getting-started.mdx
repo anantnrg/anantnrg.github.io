@@ -54,7 +54,7 @@ Now right click on it and select "**Uninstall Device**"—*adieu!* Next, we need
 
 Once finished, go to the folder where you downloaded the driver and find a compressed ZIP file named something like `en.stsw-link009`. Then extract it with any program of your choice, I like to use **7zip** (the GOAT). Open the extracted folder and run either `dpinst_amd64.exe` (for 64-bit) or `dpinst_x86.exe` (for 32-bit). Click "Next" and wait for the drivers to be installed.
 
-Once installed successfully, you can verify if your PC now properly detects your STLink device by again opening Device Manager and checking for "STM32 STLink" under "Universal Serial Bus devices". *Et voilà!*
+Once installed successfully, you can verify if your PC now properly detects your STLink device by again opening Device Manager and checking for "STM32 STLink" under "Universal Serial Bus devices". You can also try running `st-info --probe`. *Et voilà!*
 
 <Image src="/images/embedded-rust-stm32/device manager 2.png"
        alt="Device Manager 1"
@@ -74,6 +74,12 @@ Then, we need to install `cargo-binutils`. However, it depends on on the Visual 
 cargo install cargo-binutils
 
 rustup component add llvm-tools
+```
+
+We also need to install `cargo-embed` to be able to directly flash our STM32. `cargo-embed` comes as part of the `probe-rs` toolset. To get it, run:
+
+```sh
+cargo install probe-rs-tools
 ```
 
 Once done, proceed to the next step.
@@ -113,7 +119,7 @@ lto = true
 panic = "abort"
 ```
 
-Next, in the root directory, create a file named `memory.x`. This contains the memory mapping of our microcontroller. Edit it so:
+Next, in the root directory, create a file named `memory.x`. This contains the start address and the length of our microcontroller's Flash and RAM. Edit it so:
 
 ```x
 MEMORY
@@ -139,6 +145,10 @@ enabled = false
 Now, create a directory in the root named `.cargo` and create a file named `config.toml` inside it. Add these lines:
 
 ```toml
+[target.thumbv7m-none-eabi]
+
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+
 rustflags = [
     "-C",
     "link-arg=--nmagic",
@@ -188,3 +198,15 @@ fn main() -> ! {
     }
 }
 ```
+
+I'll explain in detail what this code does in another tutorial. Now we can finally upload our program! Run:
+
+```sh
+cargo-embed --release
+```
+
+If all goes well, it should print that the program was successfully flashed and the default green LED on the board will be blinking! *Parfait!*
+
+#### The end!
+
+Thats the end of part two of this tutorial series. In the next part, we'll decode this blinky program, like we did with the hello world program in the Rust for Noobs series. We will understand exactly what each line does, that way, in the future we won't be blindly copying and pasting code till it compiles! `:wq`
