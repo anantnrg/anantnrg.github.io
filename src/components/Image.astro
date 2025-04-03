@@ -10,7 +10,7 @@ const { src, alt, caption, width = "100%" } = Astro.props;
 ---
 
 <figure
-    class="flex flex-col items-center justify-center gap-y-1 text-grey hover:text-accent transition-all hover:drop-shadow-lg"
+    class="flex flex-col items-center justify-center text-grey hover:text-accent transition-all hover:drop-shadow-lg"
 >
     <img
         src={src}
@@ -18,7 +18,11 @@ const { src, alt, caption, width = "100%" } = Astro.props;
         width={width}
         class="rounded-lg border-2 border-transparent hover:border-accent transition-all"
     />
-    <figcaption class="font-space text-base text-grey text-center">
-        <em>{caption}</em>
-    </figcaption>
+    {
+        caption.length !== 0 ? (
+            <figcaption class="font-space text-base text-grey text-center">
+                <em>{caption}</em>
+            </figcaption>
+        ) : null
+    }
 </figure>

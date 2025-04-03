@@ -98,6 +98,10 @@
     .prose kbd {
         @apply px-3 py-1 rounded-md border border-grey/40 text-grey bg-mantle shadow-none;
     }
+
+    .prose figure {
+        margin: 0 !important;
+    }
 }
 
 @font-face {
