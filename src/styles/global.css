@@ -60,7 +60,7 @@
     .prose h3,
     .prose h4,
     .prose h5 {
-        @apply text-accent font-space;
+        @apply text-accent font-space mt-6 mb-4;
         line-height: 1;
     }
 

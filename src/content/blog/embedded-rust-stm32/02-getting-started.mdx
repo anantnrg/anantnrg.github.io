@@ -58,4 +58,133 @@ Once installed successfully, you can verify if your PC now properly detects your
 
 <Image src="/images/embedded-rust-stm32/device manager 2.png"
        alt="Device Manager 1"
-       caption="The drivers were successfully installed, yay!" />
+       caption="The drivers are successfully installed, yay!" />
+
+## Blinky!
+
+Now that we've successfully connect our STM32 via the STLink V2 to our PC, we can upload our first program! I'm assuming here that you have Rust and Cargo installed. First, we need to add our target to which we will compile our code. For that, run this command:
+
+```sh
+rustup target add thumbv7m-none-eabi
+```
+
+Then, we need to install `cargo-binutils`. However, it depends on on the Visual Studio 2019 C++ build tools, so we need to get that from [here](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16). Once installed, we can run:
+
+```sh
+cargo install cargo-binutils
+
+rustup component add llvm-tools
+```
+
+Once done, proceed to the next step.
+
+### Project Setup
+
+Now, we need to create a new Rust project. Run:
+
+```sh
+cargo new blinky
+```
+
+Then open the project in a text editor, such as Zed or VS Code. Edit `Cargo.toml` and add the following:
+
+```toml
+[dependencies]
+cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+
+[dependencies.stm32f1xx-hal]
+version = "0.10.0"
+features = ["rt", "stm32f103", "medium"]
+
+[profile.dev]
+opt-level = 1
+codegen-units = 16
+debug = true
+lto = false
+panic = "abort"
+
+[profile.release]
+opt-level = "s"
+codegen-units = 1
+debug = true
+lto = true
+panic = "abort"
+```
+
+Next, in the root directory, create a file named `memory.x`. This contains the memory mapping of our microcontroller. Edit it so:
+
+```x
+MEMORY
+{
+  FLASH : ORIGIN = 0x08000000, LENGTH = 64K
+  RAM : ORIGIN = 0x20000000, LENGTH = 20K
+}
+```
+
+Also create a file called `.embed.toml` next it with the following content:
+
+```toml
+[default.general]
+chip = "STM32F103C8"
+
+[default.rtt]
+enabled = true
+
+[default.gdb]
+enabled = false
+```
+
+Now, create a directory in the root named `.cargo` and create a file named `config.toml` inside it. Add these lines:
+
+```toml
+rustflags = [
+    "-C",
+    "link-arg=--nmagic",
+
+    # LLD (shipped with the Rust toolchain) is used as the default linker
+    "-C",
+    "link-arg=-Tlink.x",
+]
+
+[build]
+target = "thumbv7m-none-eabi" # Cortex-M3
+```
+
+Finally, open `src/main.rs` and put the following code in:
+
+```rust
+#![deny(unsafe_code)]
+#![no_std]
+#![no_main]
+
+use panic_halt as _;
+
+use nb::block;
+
+use cortex_m_rt::entry;
+use stm32f1xx_hal::{pac, prelude::*, timer::Timer};
+
+#[entry]
+fn main() -> ! {
+    let cp = cortex_m::Peripherals::take().unwrap();
+    let dp = pac::Peripherals::take().unwrap();
+
+    let mut flash = dp.FLASH.constrain();
+    let rcc = dp.RCC.constrain();
+    let clocks = rcc.cfgr.freeze(&mut flash.acr);
+    let mut gpioc = dp.GPIOC.split();
+
+    let mut led = gpioc.pc13.into_push_pull_output(&mut gpioc.crh);
+    let mut timer = Timer::syst(cp.SYST, &clocks).counter_hz();
+    timer.start(1.Hz()).unwrap();
+
+    loop {
+        block!(timer.wait()).unwrap();
+        led.set_high();
+        block!(timer.wait()).unwrap();
+        led.set_low();
+    }
+}
+```
