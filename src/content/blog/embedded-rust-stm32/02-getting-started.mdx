@@ -13,14 +13,14 @@ In the last tutorial in this series, we looked at embedded programming in Rust a
 
 ## The Hardware
 
-We'll be using an STM32 Bluepill board, a pretty cool 32-bit microcontroller break out board. The heart of this board is the **STM32F103**, which is based on the **ARM Cortex-M3** architecture. It has around **20KB RAM** and **64KB Flash ROM** (128KB on some un-offical models). These tiny chips run at **72MHz**, *much, much* faster than the ATmega 328p microcontrollers we're used to.
+We'll be using an STM32 Bluepill board, a pretty cool 32-bit microcontroller break out board. The heart of this board is the **STM32F103**, which is based on the **ARM Cortex-M3** architecture. It has around **20KB RAM** and **64KB Flash ROM** (128KB on some unoffical models). These tiny chips run at **72MHz**, *much, much* faster than the ATmega 328p microcontrollers we're used to.
 
 <Image src="/images/embedded-rust-stm32/stm32.png"
        alt="STM32 Bluepill"
        caption="These breakout boards are pretty common and cost only $3-5!" />
 
 One thing to note is that while Arduino boards (such as the Uno or the Mega) have **5.0V I/O**, the STM boards have **3.3V I/O**.
-If we connect a 5V peripheral like a sensor or a servo directly to one of these pins, there's a good chance you'll fry your board! To prevent this, we use a neat device called a **Logic-Level Converter/Shifter**.
+If we connect a 5V peripheral like a sensor or a servo directly to one of these pins, there's a good chance you'll fry your board! To prevent this, we use a neat little device called a **Logic-Level Converter/Shifter**.
 
 <Image src="/images/embedded-rust-stm32/llc.png"
        alt="Logic level shifter"
