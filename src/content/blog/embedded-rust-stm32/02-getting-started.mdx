@@ -27,3 +27,19 @@ If we connect a 5V peripheral like a sensor or a servo directly to one of these 
        caption="The one pictured above is a 4-channel level shifter, meaning it can be used with 4 I/O peripherals!" />
 
 These convert the 3.3V signals from the STM32 to 5V signals for the peripheral, and 5V signals from the peripherals to 3.3V signals for the STM32.
+
+Now to program the STM32 with our PC, we can't just connect it via an USB cable and hit "Upload", like you could do with an Arduino. *Ah, c'est la vie!* Instead, we have to use a programmer such as the **STLink V2**.
+
+<Image src="/images/embedded-rust-stm32/st-linkv2.png"
+       alt="STLink V2"
+       caption="The STLink V2 is a pretty cheap programmer+debugger for STM32/STM8 microcontroller boards." />
+
+The STLink V2, in particular, uses the **SWD (Serial Wire Debug)** protocol to communicate between the STM32 and your PC. This lets you flash firmware on the STM32's flash memory, and also debug your program while its running. The wiring for connecting the STM32 and the STLink is as follows:
+
+<Image src="/images/embedded-rust-stm32/stm32-stlink-connection.png"
+       alt="STM32 STLink Connection"
+       caption="" />
+
+## Setting up Windows
+
+I'm on Windows 11, so that's what I'll be using throughout the tutorial series. Most OS  related stuff talked here will be for Windows, though most stuff *should* work on other OSes.
